@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #f1e9e4;
+  --color-navy: #2f5082;
+  --color-navy-dark: #324f76;
+  --color-navy-mid: #365274;
+  --color-ink: #1e1e1e;
+  --color-ink-warm: #17100e;
+  --color-ink-mid: #2a2929;
+  --color-cream-light: #fbf0ed;
+  --color-cream-warm: #f9ebe6;
+  --color-cream-border: #a69d94;
+  --color-cream-fill: #efe3d3;
+  --color-cream-fill-dark: #e0d7cc;
+  --color-rule-light: #7f7c7c;
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-navy: var(--color-navy);
+  --color-navy-dark: var(--color-navy-dark);
+  --color-navy-mid: var(--color-navy-mid);
+  --color-ink: var(--color-ink);
+  --color-ink-warm: var(--color-ink-warm);
+  --color-ink-mid: var(--color-ink-mid);
+  --color-cream-light: var(--color-cream-light);
+  --color-cream-warm: var(--color-cream-warm);
+  --color-cream-border: var(--color-cream-border);
+  --color-cream-fill: var(--color-cream-fill);
+  --color-cream-fill-dark: var(--color-cream-fill-dark);
+  --color-rule-light: var(--color-rule-light);
+  --font-serif: "Crimson Text", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: "Crimson Text", Georgia, serif;
+}
+
+.rule-double {
+  border-top: 3px double var(--color-ink);
+}
+
+.rule-thick {
+  border-top: 2px solid var(--color-ink);
+}
+
+.rule-thin {
+  border-top: 1px solid var(--color-ink);
+}
