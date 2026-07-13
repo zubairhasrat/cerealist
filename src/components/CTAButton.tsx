@@ -18,9 +18,9 @@ export default function CTAButton({
 
   const variants = {
     primary:
-      "bg-[#324f76] text-[#fbf0ed] border-[#1e1e1e] hover:bg-[#2f5082]",
+      "bg-navy-dark text-cream-light border-ink hover:bg-navy",
     secondary:
-      "bg-gradient-to-b from-[#efe3d3] to-[#e0d7cc] text-[#1e1e1e] border-[#a69d94] hover:from-[#e8daca] hover:to-[#d6ccbf]",
+      "bg-gradient-to-b from-cream-fill to-cream-fill-dark text-ink border-cream-border hover:from-cream-fill-hover hover:to-cream-fill-dark-hover",
   };
 
   return (

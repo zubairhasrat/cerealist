@@ -13,7 +13,16 @@
   --color-cream-border: #a69d94;
   --color-cream-fill: #efe3d3;
   --color-cream-fill-dark: #e0d7cc;
+  --color-cream-fill-hover: #e8daca;
+  --color-cream-fill-dark-hover: #d6ccbf;
   --color-rule-light: #7f7c7c;
+}
+
+@theme {
+  /* Custom breakpoints (mobile-first, min-width) */
+  --breakpoint-2xs: 320px;   /* very small phones (iPhone SE 1st gen) */
+  --breakpoint-xs: 370px;    /* small phones (iPhone SE 3rd gen, mini) */
+  --breakpoint-phone: 430px; /* large phones (iPhone Pro Max, Plus) */
 }
 
 @theme inline {
@@ -29,8 +38,11 @@
   --color-cream-border: var(--color-cream-border);
   --color-cream-fill: var(--color-cream-fill);
   --color-cream-fill-dark: var(--color-cream-fill-dark);
+  --color-cream-fill-hover: var(--color-cream-fill-hover);
+  --color-cream-fill-dark-hover: var(--color-cream-fill-dark-hover);
   --color-rule-light: var(--color-rule-light);
   --font-serif: "Crimson Text", Georgia, serif;
+  --font-crimson: var(--font-crimson);
 }
 
 * {

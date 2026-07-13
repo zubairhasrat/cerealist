@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${crimsonText.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#f1e9e4] font-[family-name:var(--font-crimson)]">
+      <body className="min-h-full flex flex-col px-6 bg-[#f1e9e4] font-[family-name:var(--font-crimson)]">
         {children}
       </body>
     </html>
