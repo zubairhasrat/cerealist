@@ -1,0 +1,526 @@
+{
+  "project": {
+    "name": "The Cerealist",
+    "description": "A subscription-based cereal brand delivering monthly editions with editorial content (newspaper-style cartoons, headlines, articles) printed on/packaged with artisan cereal.",
+    "figmaFileKey": "ltMOTU1hXnmANbJFStXAVp",
+    "lastUpdated": "2026-07-29"
+  },
+  "breakpoints": {
+    "desktop": {
+      "width": 1440,
+      "maxContentWidth": 1383,
+      "sideMargin": 30
+    },
+    "mobile": {
+      "width": 375,
+      "sideMargin": 16
+    }
+  },
+  "screens": [
+    {
+      "id": "5550:606",
+      "name": "Homepage (Desktop)",
+      "type": "desktop",
+      "dimensions": { "width": 1444, "height": 4158 },
+      "description": "Full landing page with hero, editorial content, article grid, testimonials, social, and footer",
+      "sections": [
+        "top-bar",
+        "navigation",
+        "hero",
+        "opinion-editorial",
+        "monthly-edition-grid",
+        "why-adults-love",
+        "social-follow",
+        "footer"
+      ]
+    },
+    {
+      "id": "5692:5438",
+      "name": "Desktop Overlay States",
+      "type": "desktop",
+      "dimensions": { "width": 6166, "height": 2955 },
+      "description": "Four desktop states showing subscription modals overlaid on the homepage",
+      "variants": [
+        { "id": "5577:286", "name": "Choose Edition Modal" },
+        { "id": "5578:625", "name": "Pick Cereal Modal" },
+        { "id": "5591:1452", "name": "Product Detail / Nutrition Facts" },
+        { "id": "5692:5439", "name": "Contact Form" }
+      ]
+    },
+    {
+      "id": "6257:133",
+      "name": "Homepage (Mobile)",
+      "type": "mobile",
+      "dimensions": { "width": 375, "height": 2740 },
+      "description": "Mobile-adapted landing page with stacked single-column layout"
+    },
+    {
+      "id": "6503:53",
+      "name": "Inside View / How It Works (Mobile)",
+      "type": "mobile",
+      "dimensions": { "width": 375, "height": 3030 },
+      "description": "Scrollable page explaining the product: Eat, Read, Collect steps, pricing, and testimonials"
+    },
+    {
+      "id": "6503:308",
+      "name": "Subscription Step 1 - Choose Plan (Mobile)",
+      "type": "mobile",
+      "dimensions": { "width": 375, "height": 993 },
+      "description": "Step 1 of 2: Choose between Monthly Edition ($19.99/mo) or Just This Issue ($28.99)"
+    },
+    {
+      "id": "6503:455",
+      "name": "Subscription Step 2 - Pick Cereal (Mobile)",
+      "type": "mobile",
+      "dimensions": { "width": 375, "height": 1144 },
+      "description": "Step 2 of 2: Pick cereal flavor from a 2x2 grid, choose quantity, then checkout"
+    },
+    {
+      "id": "6503:656",
+      "name": "Product Detail (Mobile)",
+      "type": "mobile",
+      "dimensions": { "width": 375, "height": 1045 },
+      "description": "Full-screen product detail sheet with ingredients list and FDA-style nutrition facts table"
+    },
+    {
+      "id": "6503:809",
+      "name": "Contact Form (Mobile)",
+      "type": "mobile",
+      "dimensions": { "width": 375, "height": 1608 },
+      "description": "Write to the Desk - contact form with radio topic selection, text fields, and message area"
+    }
+  ],
+  "designTokens": {
+    "colors": {
+      "background": {
+        "primary": { "hex": "#F1E9E4", "rgb": "241,233,228", "usage": "Main page background" },
+        "warmLight": { "hex": "#F9EBE6", "rgb": "249,235,230", "usage": "Alternate section background" },
+        "warmLighter": { "hex": "#FBF0ED", "rgb": "251,240,237", "usage": "Light section variant" },
+        "card": { "hex": "#E9DBCB", "rgb": "233,219,203", "opacity": 0.3, "usage": "Feature card backgrounds" },
+        "cerealCard": { "hex": "#EAD8D1", "rgb": "234,216,209", "usage": "Cereal picker card" },
+        "input": { "hex": "#DDD3D1", "rgb": "221,211,209", "usage": "Form input backgrounds" },
+        "tag": { "hex": "#E0CFBC", "rgb": "224,207,188", "usage": "Editor's pick badge" }
+      },
+      "text": {
+        "headline": { "hex": "#1E1E1E", "rgb": "30,30,30", "usage": "Primary headlines" },
+        "body": { "hex": "#17100E", "rgb": "23,16,14", "usage": "Body and subhead text" },
+        "primary": { "hex": "#000000", "rgb": "0,0,0", "usage": "Navigation, section headers" },
+        "secondary": { "hex": "#2A2929", "rgb": "42,41,41", "usage": "Card descriptions" },
+        "muted": { "hex": "#24231F", "rgb": "36,35,31", "usage": "Tertiary text" }
+      },
+      "accent": {
+        "blue": { "hex": "#2F5082", "rgb": "47,80,130", "usage": "Primary CTA fill" },
+        "blueAlt": { "hex": "#3C5066", "rgb": "60,80,102", "usage": "Step indicator active state" }
+      },
+      "border": {
+        "warm": { "hex": "#C2B2A7", "rgb": "194,178,167", "usage": "Step pills border" },
+        "input": { "hex": "#9F9593", "rgb": "159,149,147", "usage": "Form field borders" },
+        "dark": { "hex": "#564C49", "rgb": "86,76,73", "usage": "Submit button border" },
+        "card": { "hex": "#000000", "rgb": "0,0,0", "usage": "Plan cards border" }
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "primary": "Crimson Text",
+        "source": "Google Fonts",
+        "weights": ["400", "400italic", "600", "600italic", "700"],
+        "fallback": "Georgia, serif"
+      },
+      "fontFamilySecondary": {
+        "nutritionHeading": "Inter",
+        "nutritionBody": "Helvetica",
+        "usage": "Product detail nutrition facts only"
+      },
+      "scale": {
+        "display": {
+          "desktop": { "fontSize": 79, "lineHeight": "100%", "letterSpacing": "-2%", "fontWeight": 600 },
+          "mobile": { "fontSize": 41, "lineHeight": "100%", "letterSpacing": "-2%", "fontWeight": 600 },
+          "usage": "Hero headlines, article titles"
+        },
+        "h2": {
+          "desktop": { "fontSize": 60, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 600 },
+          "mobile": { "fontSize": 42, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 600 },
+          "usage": "Section titles"
+        },
+        "h3": {
+          "desktop": { "fontSize": 42, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 700 },
+          "mobile": { "fontSize": 28, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 700 },
+          "usage": "Card titles, prices"
+        },
+        "subtitle": {
+          "desktop": { "fontSize": 40, "lineHeight": "42px", "letterSpacing": "0", "fontWeight": 400, "fontStyle": "italic" },
+          "mobile": { "fontSize": 27, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 400, "fontStyle": "italic" },
+          "usage": "Subheadlines, pull quotes"
+        },
+        "bodyLarge": {
+          "desktop": { "fontSize": 35, "lineHeight": "43px", "letterSpacing": "0", "fontWeight": 400 },
+          "mobile": { "fontSize": 27, "lineHeight": "29px", "letterSpacing": "0", "fontWeight": 400 },
+          "usage": "Article body text"
+        },
+        "body": {
+          "desktop": { "fontSize": 27, "lineHeight": "29px", "letterSpacing": "0", "fontWeight": 400 },
+          "mobile": { "fontSize": 20, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 400 },
+          "usage": "Descriptions, card text"
+        },
+        "bodySmall": {
+          "desktop": { "fontSize": 25, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 400 },
+          "mobile": { "fontSize": 17, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 400 },
+          "usage": "Fine print, feature lists"
+        },
+        "sectionHeader": {
+          "desktop": { "fontSize": 28, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 600, "textTransform": "uppercase" },
+          "mobile": { "fontSize": 17, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 600, "textTransform": "uppercase" },
+          "usage": "Section labels"
+        },
+        "cta": {
+          "desktop": { "fontSize": 39, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 600 },
+          "mobile": { "fontSize": 23, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 600 },
+          "usage": "Button text"
+        },
+        "meta": {
+          "desktop": { "fontSize": 26, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 600, "fontStyle": "italic" },
+          "mobile": { "fontSize": 11, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 600, "fontStyle": "italic" },
+          "usage": "Dates, editorial labels"
+        },
+        "nav": {
+          "desktop": { "fontSize": 29, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 400 },
+          "mobile": { "fontSize": 17, "lineHeight": "auto", "letterSpacing": "0", "fontWeight": 700 },
+          "usage": "Navigation items"
+        },
+        "dropCap": {
+          "desktop": { "fontSize": 105, "lineHeight": "100%", "letterSpacing": "-2%", "fontWeight": 600 },
+          "mobile": null,
+          "usage": "Opening paragraph initial letter (desktop only)"
+        }
+      }
+    },
+    "spacing": {
+      "sectionGap": { "value": "60-80px", "usage": "Between major page sections" },
+      "cardGap": { "value": "27-29px", "usage": "Between cards in a row" },
+      "formGap": { "value": "33px", "usage": "Between form field groups" },
+      "contentMarginDesktop": { "value": "30px", "usage": "Desktop side margins" },
+      "contentMarginMobile": { "value": "16px", "usage": "Mobile side margins" }
+    },
+    "borderRadius": {
+      "none": { "value": 0, "usage": "Desktop CTA buttons, section dividers" },
+      "small": { "value": 5, "usage": "Form inputs, radio items" },
+      "medium": { "value": 8, "usage": "Submit button, general cards" },
+      "large": { "value": 12, "usage": "Plan selection cards, step indicators" },
+      "xl": { "value": 21, "usage": "Cereal picker container" },
+      "pill": { "value": 31, "usage": "Step pills, nav pills" }
+    }
+  },
+  "components": {
+    "navigation": {
+      "desktop": {
+        "structure": ["topMetaBar", "subNav"],
+        "topMetaBar": {
+          "left": "Vol. I · No. 1",
+          "center": "Brand wordmark (The Cerealist)",
+          "right": "MONTHLY EDITION badge + PRICE $19.99"
+        },
+        "subNav": {
+          "left": "Date (SemiBold Italic)",
+          "center": "Subscribe CTA + Get this Month's Issue CTA",
+          "right": "Nav links: Home | Cartoons | Contact the Desk"
+        }
+      },
+      "mobile": {
+        "structure": ["hamburger", "wordmark", "ctaButtons"],
+        "hamburger": {
+          "bars": 3,
+          "barSize": { "width": 29, "height": 3 },
+          "barRadius": 10,
+          "barColor": "#000000"
+        },
+        "wordmark": "The Cerealist + Cereal, Grown Up. tagline"
+      }
+    },
+    "buttons": {
+      "primaryFilled": {
+        "backgroundColor": "#2F5082",
+        "textColor": "#FFFFFF",
+        "fontWeight": 600,
+        "fontSize": { "desktop": 39, "mobile": 23 },
+        "borderRadius": { "desktop": 0, "mobile": 6 },
+        "border": "none",
+        "examples": ["Subscribe & Save", "Get this Month's Issue"]
+      },
+      "primaryOutline": {
+        "backgroundColor": "transparent",
+        "textColor": "#000000",
+        "fontWeight": 600,
+        "fontSize": { "desktop": 37, "mobile": 26 },
+        "borderRadius": 6,
+        "border": { "width": 1.8, "color": "#606060" },
+        "examples": ["Preview this Month's Issue", "Preview Last Month's Issue"]
+      },
+      "stepPillActive": {
+        "backgroundColor": "#3C5066",
+        "textColor": "#FFFFFF",
+        "fontWeight": 400,
+        "fontSize": { "desktop": 28, "mobile": 17 },
+        "borderRadius": 31,
+        "border": { "width": 1.5, "color": "#C2B2A7" },
+        "size": { "width": 116, "height": 27 }
+      },
+      "stepPillInactive": {
+        "backgroundColor": "transparent",
+        "textColor": "#000000",
+        "fontWeight": 400,
+        "fontSize": { "desktop": 28, "mobile": 17 },
+        "borderRadius": 31,
+        "border": { "width": 1.5, "color": "#C2B2A7" },
+        "size": { "width": 116, "height": 27 }
+      },
+      "checkout": {
+        "backgroundColor": "#1E1E1E",
+        "textColor": "#FFFFFF",
+        "fontWeight": 600,
+        "fontSize": 29,
+        "borderRadius": 8,
+        "border": { "width": 1, "color": "#000000" },
+        "width": "full"
+      },
+      "submit": {
+        "backgroundColor": "transparent",
+        "textColor": "#000000",
+        "fontWeight": 600,
+        "fontSize": 30,
+        "borderRadius": 8,
+        "border": { "width": 2.3, "color": "#564C49" },
+        "size": { "width": 340, "height": 51 }
+      }
+    },
+    "cards": {
+      "planCard": {
+        "width": 343,
+        "height": 257,
+        "borderRadius": 12,
+        "border": { "width": 1.2, "color": "#000000" },
+        "content": {
+          "title": { "fontSize": 33, "fontWeight": 600 },
+          "price": { "fontSize": 28, "fontWeight": 700 },
+          "description": { "fontSize": 17, "fontWeight": 400 },
+          "cta": "button inside"
+        }
+      },
+      "cerealPickerCard": {
+        "width": 345,
+        "height": 484,
+        "borderRadius": 21,
+        "border": { "width": 1, "color": "#000000" },
+        "backgroundColor": "#EAD8D1",
+        "grid": {
+          "columns": 2,
+          "rows": 2,
+          "gap": 5
+        }
+      },
+      "articleCard": {
+        "layout": "vertical",
+        "content": {
+          "categoryTag": { "fontSize": 21, "fontWeight": 700, "textTransform": "uppercase" },
+          "headline": { "fontSize": 35, "fontWeight": 700, "lineHeight": "33px" },
+          "description": { "fontSize": 27, "fontWeight": 400, "lineHeight": "29px" }
+        }
+      },
+      "testimonialCard": {
+        "backgroundColor": "#E9DBCB30",
+        "textStyle": { "fontSize": 25, "fontWeight": 400 }
+      }
+    },
+    "formElements": {
+      "radioItem": {
+        "width": 351,
+        "height": 42,
+        "borderRadius": 5,
+        "backgroundColor": "#DDD3D1",
+        "border": { "width": 1.9, "color": "#9F9593" },
+        "textStyle": { "fontSize": 24, "fontWeight": 600 }
+      },
+      "textInput": {
+        "width": 351,
+        "height": 42,
+        "borderRadius": 5,
+        "backgroundColor": "#DDD3D1",
+        "border": { "width": 1.9, "color": "#9F9593" },
+        "labelStyle": { "fontSize": 25, "fontWeight": 600 }
+      },
+      "textarea": {
+        "width": 351,
+        "height": 337,
+        "borderRadius": 0,
+        "backgroundColor": "transparent",
+        "border": { "width": 1.2, "color": "#453D3A" }
+      },
+      "quantitySelector": {
+        "style": "numbered buttons in a row",
+        "textStyle": { "fontSize": 20, "fontWeight": 600 }
+      },
+      "checkbox": {
+        "size": 19,
+        "borderRadius": 2,
+        "border": { "width": 1.6, "color": "#5F5855" }
+      }
+    },
+    "sectionDivider": {
+      "type": "double-line horizontal rule",
+      "width": "100% of content area",
+      "style": "Two thin hairline vectors stacked ~8px apart",
+      "color": "#000000"
+    },
+    "footer": {
+      "backgroundColor": "#F8EDE7",
+      "navPills": {
+        "items": ["Cereal", "Granola", "Contact the Desk"],
+        "style": "outlined pill buttons"
+      },
+      "legalLinks": ["Terms of Service", "Privacy Policy", "Accessibility"],
+      "brandLockup": {
+        "copyright": "©",
+        "wordmark": "The Cerealist (large serif masthead)",
+        "tagline": "Cereal, Grown Up."
+      }
+    },
+    "socialIcons": {
+      "platforms": ["Facebook", "Instagram", "TikTok", "X"],
+      "layout": "horizontal row",
+      "spacing": 6,
+      "cta": "Follow, post, & tag @theCerealist"
+    },
+    "dropCap": {
+      "fontSize": 105,
+      "fontWeight": 600,
+      "letterSpacing": "-2%",
+      "lineHeight": "100%",
+      "cssImplementation": "::first-letter pseudo-element or float-left span"
+    }
+  },
+  "userFlows": {
+    "subscription": {
+      "steps": 2,
+      "flow": [
+        {
+          "step": 0,
+          "screen": "Homepage",
+          "trigger": "Get this Month's Issue CTA"
+        },
+        {
+          "step": 1,
+          "screen": "Choose Plan",
+          "options": [
+            {
+              "name": "Monthly Edition",
+              "price": "$19.99/month",
+              "cta": "Subscribe & Save",
+              "features": [
+                "A new issue. A new cereal. Every month.",
+                "Includes every new release",
+                "Pause or cancel anytime"
+              ]
+            },
+            {
+              "name": "Just This Issue",
+              "price": "$28.99",
+              "cta": "Get this Month's Issue",
+              "features": [
+                "One box. One story.",
+                "A one-time purchase"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "screen": "Pick Cereal",
+          "options": [
+            { "name": "Honey Rings", "description": "Classic, lightly sweet, oat-based crunch" },
+            { "name": "Fruit Crunch", "description": "Fruity, colorful corn puffs" },
+            { "name": "Captain's Crunch", "description": "Sweetened corn squares" },
+            { "name": "Cocoa Clusters", "description": "Crispy, chocolatey clusters" }
+          ],
+          "features": ["Editors Pick badge", "Quantity selector", "Cart summary"]
+        },
+        {
+          "step": 3,
+          "screen": "Checkout",
+          "note": "Not fully designed in current file"
+        }
+      ]
+    },
+    "contact": {
+      "screen": "Write to the Desk",
+      "fields": [
+        {
+          "name": "topic",
+          "type": "radio",
+          "options": [
+            "General Inquiry",
+            "Subscription/ Orders",
+            "Press & Partnerships",
+            "Submit a Cartoon",
+            "Submit a Headline",
+            "Something Went Wrong",
+            "Just Saying Hello"
+          ]
+        },
+        { "name": "from", "type": "text", "label": "From" },
+        { "name": "replyTo", "type": "email", "label": "Reply-To" },
+        { "name": "subject", "type": "text", "label": "Subject" },
+        { "name": "message", "type": "textarea", "label": null },
+        { "name": "submit", "type": "button", "label": "Send to the Desk" }
+      ]
+    }
+  },
+  "assets": {
+    "images": [
+      { "name": "newspaper-mockup-hero", "dimensions": "596x824", "format": "PNG/WebP", "notes": "Rotated ~5deg, newspaper front page mockup" },
+      { "name": "paper-texture-bg", "dimensions": "1442x1023+", "format": "JPG/WebP", "notes": "Tileable warm paper texture, multiple variants" },
+      { "name": "cereal-bowl-honey-rings", "dimensions": "~155x175", "format": "PNG", "notes": "Transparent background" },
+      { "name": "cereal-bowl-fruit-crunch", "dimensions": "~155x175", "format": "PNG", "notes": "Transparent background" },
+      { "name": "cereal-bowl-captains-crunch", "dimensions": "~155x175", "format": "PNG", "notes": "Transparent background" },
+      { "name": "cereal-bowl-cocoa-clusters", "dimensions": "~155x175", "format": "PNG", "notes": "Transparent background" },
+      { "name": "social-icon-facebook", "dimensions": "62x62", "format": "SVG", "notes": "Circular" },
+      { "name": "social-icon-instagram", "dimensions": "62x62", "format": "SVG", "notes": "Circular" },
+      { "name": "social-icon-tiktok", "dimensions": "62x62", "format": "SVG", "notes": "Circular" },
+      { "name": "social-icon-x", "dimensions": "62x62", "format": "SVG", "notes": "Circular" },
+      { "name": "brand-wordmark", "dimensions": "variable", "format": "SVG", "notes": "The Cerealist masthead logo" },
+      { "name": "article-thumbnails", "dimensions": "381x254", "format": "JPG", "notes": "Editorial imagery, multiple" }
+    ],
+    "fonts": [
+      { "family": "Crimson Text", "weights": [400, 600, 700], "styles": ["normal", "italic"], "source": "Google Fonts" },
+      { "family": "Inter", "weights": [900], "styles": ["normal"], "source": "Google Fonts", "usage": "Nutrition Facts heading only" },
+      { "family": "Helvetica", "weights": [400, 700], "styles": ["normal"], "source": "System font", "usage": "Nutrition Facts body only" }
+    ]
+  },
+  "accessibility": {
+    "contrastChecks": [
+      { "pair": "body text on primary bg", "foreground": "#2A2929", "background": "#F1E9E4", "ratio": "~11:1", "passes": "AAA" },
+      { "pair": "CTA blue on white", "foreground": "#2F5082", "background": "#FFFFFF", "ratio": "~5.4:1", "passes": "AA" },
+      { "pair": "headline on primary bg", "foreground": "#1E1E1E", "background": "#F1E9E4", "ratio": "~12:1", "passes": "AAA" }
+    ],
+    "requirements": [
+      "Radio buttons need visible focus states",
+      "Form fields need proper <label> elements and ARIA attributes",
+      "Drop caps need aria-hidden or CSS ::first-letter treatment",
+      "Images require meaningful alt text",
+      "Step indicators need aria-current and role=tablist semantics",
+      "Nutrition facts table needs proper <table> markup with headers"
+    ]
+  },
+  "developmentNotes": {
+    "layout": [
+      "Desktop uses max-width 1383px centered container",
+      "Mobile is single-column stacked layout at 375px",
+      "Hero section: CSS Grid 2-column on desktop, stacked on mobile",
+      "Article grid: 4-column on desktop, single-column cards on mobile",
+      "No auto-layout on root Figma frames - convert to flex/grid in code"
+    ],
+    "cssVariables": "Map all design tokens to CSS custom properties for theming",
+    "fontLoading": "Load Crimson Text from Google Fonts; preconnect for performance",
+    "imageOptimization": "Use WebP with JPEG fallback; paper textures can be CSS patterns",
+    "modals": "Desktop subscription flow uses overlay modals; mobile uses full-page screens",
+    "animations": "Consider subtle page transitions between subscription steps"
+  }
+}

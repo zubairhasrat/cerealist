@@ -1,0 +1,61 @@
+# Progress Tracker — The Cerealist
+
+Update this file after every meaningful implementation change.
+
+## Current Phase
+
+- Foundation setup — context files complete, component implementation not yet started
+
+## Current Goal
+
+- Implement landing page components in order per `ai-workflow-rules.md`
+
+## Completed
+
+- Context files authored (project-overview, architecture, ui-context, code-standards, ai-workflow-rules)
+- Feature specs created for all landing page components and subscription flow
+- Initial project scaffolded (Next.js + TypeScript)
+- Masthead component — partially implemented (staged in git)
+- NavBar component — partially implemented (staged in git)
+
+## In Progress
+
+- None
+
+## Next Up
+
+1. Globals: CSS custom properties, font loading (Crimson Text via next/font/google), base Tailwind config extensions
+2. Masthead: top bar with Vol. I · No. 1, wordmark, Monthly Edition badge, price
+3. NavBar: date left, CTA buttons center (Subscribe + Get this Month's Issue), nav links right
+4. Hero: display headline, italic subtitle, drop-cap body text, $19.99/mo price, CTA buttons, newspaper mockup image
+5. OpinionSection + EditorialArticle: section header with double-rule dividers, large editorial with drop cap, pull quote, cereal box image
+6. ArticleGrid: 4-column grid (Politics, Sports, The Funnies, Opinion) with vertical hairline dividers
+7. WhyAdultsLove: 3 feature cards
+8. SocialFollow: 4 social icons + CTA text
+9. Footer: nav pills, large wordmark, tagline, legal links, copyright
+10. SubscriptionFlow: ChoosePlanStep modal → PickCerealStep modal → Shopify redirect
+11. ProductDetailSheet + NutritionFacts
+12. ContactForm
+13. Mobile responsive pass
+
+## Open Questions
+
+- Shopify store domain and product variant IDs not yet provided — needed before SubscriptionFlow can redirect to checkout
+- Are the "Cartoons" and product pages (Cereal, Granola) in scope for v1? Currently marked out of scope.
+- Contact form: does it need a backend (email sending) or is UI-only acceptable for v1?
+- Paper texture background images — need final assets or placeholders confirmed
+
+## Architecture Decisions
+
+- Checkout handled entirely by Shopify redirect — no custom cart or payment in this app
+- No database or auth in v1 — fully static marketing site
+- Next.js App Router with RSC by default; `'use client'` only for interactive islands (modals, forms, quantity selector)
+- Fonts loaded via `next/font/google`, not CDN link
+
+## Session Notes
+
+- Figma file key: `ltMOTU1hXnmANbJFStXAVp`
+- Homepage desktop node: `5550:606`
+- All design tokens are in `context/ui-specs.json` — use as source of truth
+- The Figma file uses absolute positioning throughout — convert to flex/grid in implementation
+- Paper texture is a repeating background image across multiple sections

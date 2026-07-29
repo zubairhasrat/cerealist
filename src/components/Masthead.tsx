@@ -1,37 +1,53 @@
+import Image from "next/image";
 import DoubleRule from "./DoubleRule";
-import RuleLine from "./RuleLine";
 
 export default function Masthead() {
   return (
     <header className="w-full bg-paper">
-      {/* Top meta row */}
-      <div className="pt-2 flex items-center justify-between text-[18px] sm:text-[26px] font-bold text-black">
+      {/* Top meta row — font 26px Bold, top-[14px] in Figma */}
+      <div className="pt-[14px] pb-1 flex items-center justify-between font-[family-name:var(--font-crimson)] font-bold text-[26px] leading-none text-ink">
         <span>Vol. I &middot; No. 1</span>
-        <span className="uppercase text-[13px] sm:text-[26px]">Cereal, Grown Up.</span>
-        <span className="uppercase">Price $19.99</span>
+        <span>CEREAL, GROWN UP.</span>
+        <span>PRICE $19.99</span>
       </div>
 
       <DoubleRule thickWidth={2.96153} thinWidth={1.97435} />
 
-      {/* Logo */}
-      <div className="max-w-[1440px] mx-auto px-6 py-4 flex items-center justify-center">
-        <h1 className="font-crimson font-bold text-[72px] leading-none tracking-[-1px] text-ink select-none">
-          The Cerealist
-        </h1>
-      </div>
+      {/* Logo + badges row */}
+      {/* Logo is absolutely centered; badges sit left/right independently */}
+      <div className="relative flex items-center justify-around py-[6px]">
+        {/* EST. 2026 — w-[86px] h-[79px], SemiBold 27px, Figma node 6587:869 */}
+        <div className="border border-ink w-[86px] h-[79px] flex flex-col items-center justify-center shrink-0">
+          <span className="font-[family-name:var(--font-crimson)] font-semibold text-[27px] leading-none text-ink">
+            EST.
+          </span>
+          <span className="font-[family-name:var(--font-crimson)] font-semibold text-[27px] leading-none text-ink">
+            2026
+          </span>
+        </div>
 
-      {/* Sub-rule row */}
-      <RuleLine strokeWidth={1} height={1} />
-      <div className="max-w-[1440px] mx-auto px-6 py-1 flex items-center gap-6 text-[12px]">
-        <span className="border border-ink px-2 py-0.5 text-[11px] font-semibold leading-tight">
-          EST.<br />2026
-        </span>
-        <span className="flex-1" />
-        <span className="border border-ink px-2 py-0.5 text-[11px] font-semibold leading-tight text-center">
-          MONTHLY<br />EDITION
-        </span>
+        {/* Logo — absolutely centered, h-[115px], rotate-[0.46deg] from Figma */}
+        <h1 className="">
+          <Image
+            src="/images/the-cerealist-text.png"
+            alt="The Cerealist"
+            width={587}
+            height={115}
+            priority
+            className="h-[115px] w-auto"
+          />
+        </h1>
+        {/* MONTHLY EDITION — w-[158px] h-[79px], SemiBold 28.6px, Figma node 6587:875 */}
+        <div className="border border-ink w-[158px] h-[79px] flex flex-col items-center justify-center shrink-0">
+          <span className="font-[family-name:var(--font-crimson)] font-semibold text-[28px] leading-none text-ink tracking-wide">
+            MONTHLY
+          </span>
+          <span className="font-[family-name:var(--font-crimson)] font-semibold text-[28px] leading-none text-ink tracking-wide">
+            EDITION
+          </span>
+        </div>
       </div>
-      <RuleLine strokeWidth={2} height={2} />
+      <DoubleRule thickWidth={2.96153} thinWidth={1.97435} />
     </header>
   );
 }
