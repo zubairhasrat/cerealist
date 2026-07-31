@@ -5,7 +5,7 @@
 | Layer      | Technology               | Role                                                        |
 | ---------- | ------------------------ | ----------------------------------------------------------- |
 | Framework  | Next.js (App Router) + TypeScript | Page routing, server components, static generation |
-| Styling    | Tailwind CSS             | Utility-first CSS, configured with design token values      |
+| Styling    | Tailwind CSS v4          | Utility-first CSS; all config in `globals.css` via `@theme`/`@theme inline` — no `tailwind.config.ts` |
 | Fonts      | Google Fonts (Crimson Text, Inter) | Loaded via `next/font/google`                   |
 | Images     | `next/image`             | Optimized image delivery with WebP + lazy loading           |
 | Checkout   | Shopify Storefront       | Cart, payment, and order fulfillment — external redirect    |

@@ -25,13 +25,34 @@
 
 ## Styling
 
-- Use Tailwind utility classes as the primary styling mechanism
-- Design tokens from `ui-context.md` are mapped to CSS custom properties in `globals.css`
-- Reference tokens via Tailwind config extensions (e.g., `text-headline`, `bg-primary`)
-- No hardcoded hex values in component JSX — always use token classes or variables
-- No inline `style` prop for colors — exception: complex transforms/masks from Figma output may use inline styles
-- Follow the border radius scale from `ui-context.md` — use token class names
-- Section dividers are always `<SectionDivider />` — never hand-coded `<hr>` pairs
+**This project uses Tailwind CSS v4.** There is no `tailwind.config.ts`. All configuration lives in `src/app/globals.css`.
+
+### Token system (v4 pattern)
+
+- Raw values defined in `:root` as CSS custom properties: `--color-*`, `--radius-*`
+- Mapped to Tailwind utilities via `@theme inline { --color-name: var(--color-name); }` — this generates `bg-name`, `text-name`, `border-name` classes
+- New breakpoints and generated tokens go in `@theme { }` (no `inline`)
+- **Never create `tailwind.config.ts`** — v4 ignores it
+
+### Naming convention
+
+Colors follow `--color-{semantic-name}` → utility class `bg-{semantic-name}` / `text-{semantic-name}`:
+
+| CSS variable          | Tailwind utility example |
+| --------------------- | ------------------------ |
+| `--color-paper`       | `bg-paper`               |
+| `--color-navy`        | `bg-navy`, `text-navy`   |
+| `--color-ink`         | `text-ink`               |
+| `--color-footer`      | `bg-footer`              |
+| `--color-cereal-card` | `bg-cereal-card`         |
+| `--color-border-dark` | `border-border-dark`     |
+
+### Rules
+
+- No hardcoded hex values in component JSX — always use token classes or `var(--color-*)` 
+- Border radius: use `var(--radius-sm/md/lg/xl/pill)` directly via `style` prop or `rounded-[var(--radius-pill)]` — no custom radius tokens in `@theme` (avoids overriding Tailwind defaults)
+- `rgba` colors (e.g. `--color-card`) cannot go in `@theme inline` — use `bg-[var(--color-card)]` arbitrary value syntax
+- Section dividers use `.rule-double` / `.rule-thin` CSS classes defined in `globals.css`
 
 ## Component Organization
 

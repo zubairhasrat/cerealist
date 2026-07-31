@@ -53,49 +53,37 @@ body {
 }
 ```
 
-### `tailwind.config.ts`
+### Tailwind v4 token mapping (in `globals.css`)
 
-Extend the Tailwind theme to map all tokens:
+**No `tailwind.config.ts`** — this project uses Tailwind v4. All config lives in `globals.css`.
 
-```ts
-theme: {
-  extend: {
-    colors: {
-      'bg-primary': 'var(--bg-primary)',
-      'bg-warm-light': 'var(--bg-warm-light)',
-      'bg-warm-lighter': 'var(--bg-warm-lighter)',
-      'bg-card': 'var(--bg-card)',
-      'bg-cereal-card': 'var(--bg-cereal-card)',
-      'bg-input': 'var(--bg-input)',
-      'bg-footer': 'var(--bg-footer)',
-      'text-headline': 'var(--text-headline)',
-      'text-body': 'var(--text-body)',
-      'text-secondary': 'var(--text-secondary)',
-      'text-muted': 'var(--text-muted)',
-      'accent-blue': 'var(--accent-blue)',
-      'accent-blue-alt': 'var(--accent-blue-alt)',
-      'border-warm': 'var(--border-warm)',
-      'border-input': 'var(--border-input)',
-      'border-dark': 'var(--border-dark)',
-    },
-    borderRadius: {
-      'none': '0px',
-      'sm': '5px',
-      'md': '8px',
-      'lg': '12px',
-      'xl': '21px',
-      'pill': '31px',
-    },
-    fontFamily: {
-      serif: ['var(--font-crimson)', 'Georgia', 'serif'],
-      sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-    },
-    maxWidth: {
-      content: '1383px',
-    },
-  },
+New tokens go in `:root`, then mapped in `@theme inline` to generate utilities:
+
+```css
+/* 1. Raw values in :root */
+:root {
+  --color-cereal-card: #ead8d1;
+  --color-input: #ddd3d1;
+  --color-footer: #f8ede7;
+  /* ... etc */
+  --radius-pill: 31px;
+}
+
+/* 2. Expose as Tailwind utilities via @theme inline */
+@theme inline {
+  --color-cereal-card: var(--color-cereal-card);
+  --color-input: var(--color-input);
+  --color-footer: var(--color-footer);
+  /* generates: bg-cereal-card, text-cereal-card, border-cereal-card */
+}
+
+/* 3. New breakpoints or fully-generated tokens go in @theme (no inline) */
+@theme {
+  --breakpoint-xs: 370px;
 }
 ```
+
+`rgba` values (like `--color-card`) cannot use `@theme inline` — reference via `bg-[var(--color-card)]` arbitrary syntax. Border radius values are plain CSS variables, used via `rounded-[var(--radius-pill)]`.
 
 ### `src/app/layout.tsx`
 
@@ -144,7 +132,7 @@ None beyond what's already installed (Next.js, Tailwind, TypeScript).
 ## Verify When Done
 
 - [ ] All CSS custom properties defined in `globals.css`
-- [ ] Tailwind config extends with all token colors and border radii
+- [ ] All color tokens in `:root` + mapped in `@theme inline` (no tailwind.config.ts)
 - [ ] `body` renders with `--bg-primary` (#F1E9E4) background
 - [ ] Crimson Text loads correctly at weights 400, 600, 700 (normal + italic)
 - [ ] Inter loads at weight 900

@@ -70,7 +70,9 @@ Primary typeface is **Crimson Text** (Google Fonts) for all UI text. Nutrition f
 
 ## Component Library
 
-No third-party component library. All components are custom-built to match the editorial newspaper design system. Components live in `src/components/`. Tailwind CSS is used for styling via CSS custom properties mapped to Tailwind config.
+No third-party component library. All components are custom-built to match the editorial newspaper design system. Components live in `src/components/`.
+
+**Tailwind CSS v4** is used for styling. Configuration is entirely in `src/app/globals.css` — no `tailwind.config.ts`. Design tokens are CSS custom properties in `:root`, exposed as Tailwind utilities via `@theme inline`. See `code-standards.md` → Styling for the full v4 pattern.
 
 ## Breakpoints
 

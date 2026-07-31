@@ -14,7 +14,7 @@ export default function Footer() {
             { label: "Granola", href: "/cereals" },
             { label: "Contact the Desk", href: "/contact" },
           ].map((item, i, arr) => (
-            <span key={item.href} className="flex items-center gap-8">
+            <span key={item.label} className="flex items-center gap-8">
               <Link
                 href={item.href}
                 className="font-[family-name:var(--font-crimson)] font-bold text-[22px] text-ink hover:underline"

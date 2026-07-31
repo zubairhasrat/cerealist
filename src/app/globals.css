@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  /* ── Existing palette ─────────────────────────────── */
   --color-paper: #f1e9e4;
   --color-navy: #2f5082;
   --color-navy-dark: #324f76;
@@ -16,6 +17,28 @@
   --color-cream-fill-hover: #e8daca;
   --color-cream-fill-dark-hover: #d6ccbf;
   --color-rule-light: #7f7c7c;
+
+  /* ── Missing spec tokens ──────────────────────────── */
+  --color-cereal-card: #ead8d1;      /* cereal picker card background  */
+  --color-input: #ddd3d1;            /* form input background          */
+  --color-tag: #e0cfbc;              /* editor's pick badge            */
+  --color-footer: #f8ede7;           /* footer background              */
+  --color-muted: #24231f;            /* tertiary / muted text          */
+  --color-navy-alt: #3c5066;         /* step indicator active          */
+  --color-border-warm: #c2b2a7;      /* step pill borders              */
+  --color-border-input: #9f9593;     /* form field borders             */
+  --color-border-dark: #564c49;      /* submit button border           */
+  --color-card: rgba(233 219 203 / 0.3); /* feature card background    */
+
+  /* ── Border radius scale ─────────────────────────── */
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 21px;
+  --radius-pill: 31px;
+
+  /* ── Content width ───────────────────────────────── */
+  --max-w-content: 1383px;
 }
 
 @theme {
@@ -26,6 +49,7 @@
 }
 
 @theme inline {
+  /* ── Existing tokens ──────────────────────────────── */
   --color-paper: var(--color-paper);
   --color-navy: var(--color-navy);
   --color-navy-dark: var(--color-navy-dark);
@@ -41,8 +65,22 @@
   --color-cream-fill-hover: var(--color-cream-fill-hover);
   --color-cream-fill-dark-hover: var(--color-cream-fill-dark-hover);
   --color-rule-light: var(--color-rule-light);
+
+  /* ── New spec tokens ──────────────────────────────── */
+  --color-cereal-card: var(--color-cereal-card);
+  --color-input: var(--color-input);
+  --color-tag: var(--color-tag);
+  --color-footer: var(--color-footer);
+  --color-muted: var(--color-muted);
+  --color-navy-alt: var(--color-navy-alt);
+  --color-border-warm: var(--color-border-warm);
+  --color-border-input: var(--color-border-input);
+  --color-border-dark: var(--color-border-dark);
+
+  /* ── Fonts ────────────────────────────────────────── */
   --font-serif: "Crimson Text", Georgia, serif;
   --font-crimson: var(--font-crimson);
+  --font-inter: var(--font-inter);
 }
 
 * {
@@ -52,9 +90,10 @@
 body {
   background: var(--color-paper);
   color: var(--color-ink);
-  font-family: "Crimson Text", Georgia, serif;
+  font-family: var(--font-serif);
 }
 
+/* ── Editorial rule utilities ─────────────────────── */
 .rule-double {
   border-top: 3px double var(--color-ink);
 }

@@ -4,11 +4,11 @@ Update this file after every meaningful implementation change.
 
 ## Current Phase
 
-- Foundation setup — context files complete, component implementation not yet started
+- Implementation — Spec 01 (Globals) complete, proceeding to Spec 02 (Masthead)
 
 ## Current Goal
 
-- Implement landing page components in order per `ai-workflow-rules.md`
+- Implement Masthead component per `context/feature-specs/02-masthead.md`
 
 ## Completed
 
@@ -17,6 +17,14 @@ Update this file after every meaningful implementation change.
 - Initial project scaffolded (Next.js + TypeScript)
 - Masthead component — partially implemented (staged in git)
 - NavBar component — partially implemented (staged in git)
+- **Spec 01 — Globals** ✅
+  - All missing color tokens added to `globals.css` (cereal-card, input, tag, footer, muted, navy-alt, border-warm, border-input, border-dark, card)
+  - Border radius scale defined as CSS variables (`--radius-sm/md/lg/xl/pill`)
+  - `@theme inline` updated — all new tokens available as Tailwind color utilities
+  - Inter font loaded in `layout.tsx` via `next/font/google` (weight 900, `--font-inter` variable)
+  - `src/components/ui/ContentContainer.tsx` created — fluid max-w-[1383px], px-4 mobile / px-[30px] md+
+  - `PageWrapper.tsx` updated — removed hardcoded `max-w-[1440px]`; sections own their own ContentContainer
+  - `npm run build` passes ✅
 
 ## In Progress
 
@@ -24,8 +32,7 @@ Update this file after every meaningful implementation change.
 
 ## Next Up
 
-1. Globals: CSS custom properties, font loading (Crimson Text via next/font/google), base Tailwind config extensions
-2. Masthead: top bar with Vol. I · No. 1, wordmark, Monthly Edition badge, price
+1. Masthead: top bar with Vol. I · No. 1, wordmark, Monthly Edition badge, price
 3. NavBar: date left, CTA buttons center (Subscribe + Get this Month's Issue), nav links right
 4. Hero: display headline, italic subtitle, drop-cap body text, $19.99/mo price, CTA buttons, newspaper mockup image
 5. OpinionSection + EditorialArticle: section header with double-rule dividers, large editorial with drop cap, pull quote, cereal box image
