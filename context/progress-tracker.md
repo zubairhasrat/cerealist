@@ -4,11 +4,11 @@ Update this file after every meaningful implementation change.
 
 ## Current Phase
 
-- Implementation — Spec 01 (Globals) complete, proceeding to Spec 02 (Masthead)
+- Implementation — Spec 04 (Hero) complete, proceeding to Spec 05 (OpinionSection)
 
 ## Current Goal
 
-- Implement Masthead component per `context/feature-specs/02-masthead.md`
+- Implement OpinionSection per `context/feature-specs/05-opinion.md`
 
 ## Completed
 
@@ -25,6 +25,31 @@ Update this file after every meaningful implementation change.
   - `src/components/ui/ContentContainer.tsx` created — fluid max-w-[1383px], px-4 mobile / px-[30px] md+
   - `PageWrapper.tsx` updated — removed hardcoded `max-w-[1440px]`; sections own their own ContentContainer
   - `npm run build` passes ✅
+- **Spec 02 — Masthead** ✅
+  - Restructured to 3-column CSS grid: left (Vol. I · No. 1), center (tagline + badges + wordmark), right (PRICE $19.99)
+  - EST. 2026 badge and MONTHLY EDITION badge flank the wordmark in center column
+  - Wrapped in `ContentContainer` for consistent max-width / padding
+  - Hidden on mobile (`hidden md:block`) per spec
+  - `DoubleRule` at bottom separates masthead from navbar
+  - `npm run build` passes ✅
+- **Spec 03 — NavBar** ✅
+  - Desktop: dark navy bg (`bg-navy-dark`), date left (light text), nav links center with 1px dividers, SUBSCRIBE button right
+  - Mobile: paper bg, hamburger button (`aria-label="Open menu"`) left, centered wordmark + italic tagline, spacer right
+  - Wrapped in `ContentContainer` for consistent padding
+  - `DoubleRule` at bottom (replaces old `RuleLine`)
+  - `npm run build` passes ✅
+- **Spec 04 — Hero** ✅
+  - Desktop: two-column grid (`1fr 596px`), left text + right image
+  - Headline 41px mobile / 79px desktop, SemiBold, -2% tracking
+  - Italic subtitle 27px mobile / 40px desktop
+  - Hairline rule below subtitle
+  - Desktop: drop cap "P" 105px SemiBold float-left; Mobile: `hero-image.png` floats left within body text
+  - Body text 27px/34px mobile, 35px/43px desktop
+  - Price lockup between hairline rules: `$19.99` bold 40px + `per monthly edition` italic 31px
+  - `primary-filled` (navy bg, cream text, no radius desktop) + `primary-outline` (transparent, 1.8px `--color-border-outline`, 9.5px radius) buttons
+  - `--color-border-outline: #606060` added to globals.css
+  - Uses `next/image` with `priority` on desktop image
+  - `npm run build` passes ✅
 
 ## In Progress
 
@@ -32,8 +57,7 @@ Update this file after every meaningful implementation change.
 
 ## Next Up
 
-1. Masthead: top bar with Vol. I · No. 1, wordmark, Monthly Edition badge, price
-3. NavBar: date left, CTA buttons center (Subscribe + Get this Month's Issue), nav links right
+1. Hero: date left, CTA buttons center (Subscribe + Get this Month's Issue), nav links right
 4. Hero: display headline, italic subtitle, drop-cap body text, $19.99/mo price, CTA buttons, newspaper mockup image
 5. OpinionSection + EditorialArticle: section header with double-rule dividers, large editorial with drop cap, pull quote, cereal box image
 6. ArticleGrid: 4-column grid (Politics, Sports, The Funnies, Opinion) with vertical hairline dividers

@@ -28,6 +28,7 @@
   --color-border-warm: #c2b2a7;      /* step pill borders              */
   --color-border-input: #9f9593;     /* form field borders             */
   --color-border-dark: #564c49;      /* submit button border           */
+  --color-border-outline: #606060;   /* outline CTA button border      */
   --color-card: rgba(233 219 203 / 0.3); /* feature card background    */
 
   /* ── Border radius scale ─────────────────────────── */
@@ -76,6 +77,7 @@
   --color-border-warm: var(--color-border-warm);
   --color-border-input: var(--color-border-input);
   --color-border-dark: var(--color-border-dark);
+  --color-border-outline: var(--color-border-outline);
 
   /* ── Fonts ────────────────────────────────────────── */
   --font-serif: "Crimson Text", Georgia, serif;
