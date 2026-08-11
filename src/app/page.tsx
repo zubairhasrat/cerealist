@@ -7,7 +7,14 @@ import SocialFollowSection from "@/components/home/SocialFollowSection";
 
 export default function HomePage() {
   return (
-    <PageWrapper>
+    <PageWrapper
+      outerClassName="bg-no-repeat"
+      // outerStyle={{
+      //   backgroundImage: "url('/images/home-bg.png')",
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "top center",
+      // }}
+    >
       <HeroSection />
       <OpinionSection />
       <EditionSection />

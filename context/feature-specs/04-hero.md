@@ -10,7 +10,7 @@ Figma nodes: `6657:220`, `6632:25`, `6636:80`.
 
 ### Desktop Layout
 
-Two-column CSS grid. Left ~660px wide, right ~596px. Total within 1383px container.
+Two-column CSS grid. Left 50% wide, right 50%. Total within 1440px container.
 
 **Left Column:**
 
@@ -28,7 +28,6 @@ Two-column CSS grid. Left ~660px wide, right ~596px. Total within 1383px contain
 **Right Column:**
 
 - Newspaper mockup image — 596×824px
-- Slight clockwise rotation (~0° in design, slight visual tilt from paper texture)
 - Use `next/image` with `src="/images/newspaper-mockup-hero.png"` (or WebP)
 - `alt="The Cerealist newspaper mockup, Vol. I No. 1"`
 

@@ -14,28 +14,51 @@ Centered column. Icons in a row, CTA text below.
 
 ### Social Icons
 
-Four circular icons in a horizontal row, 6px gap:
-- Facebook — 62×62px circular SVG
-- Instagram — 62×62px circular SVG
-- TikTok — 62×62px circular SVG
-- X (Twitter) — 62×62px circular SVG
+Four square rounded-corner icon boxes in a horizontal row, ~6px gap:
+- Facebook
+- Instagram
+- TikTok
+- X (Twitter)
 
-Icon assets: `/public/images/social-facebook.svg`, `/public/images/social-instagram.svg`, `/public/images/social-tiktok.svg`, `/public/images/social-x.svg`
+Icon assets (PNG, already include the full box design):
+- `/public/images/facebook-icon.png`
+- `/public/images/instagram-icon.png`
+- `/public/images/tictok-icon.png` ← note filename typo matches actual file
+- `/public/images/x-icon.png`
+
+Each icon box is rendered as an `<Image>` inside an `<a>` tag. The box appearance (rounded corners, cream/beige textured background, dark border) is baked into the PNG assets.
+
+**Shadow effect:** Apply `drop-shadow` via Tailwind on the wrapper `<a>`:
+```
+drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)]
+```
+
+**Press/active effect:** On `active:`, translate down-right by 2px and reduce shadow:
+```
+active:translate-x-[2px] active:translate-y-[2px] active:drop-shadow-[1px_1px_0px_rgba(0,0,0,0.4)]
+```
+
+Icon display size: `80×80px` (adjust to match visual).
 
 ### CTA Text
 
-"Follow, post, & tag @theCerealist" — 32.3px / Regular / capitalize / centered / `--text-primary`
+"Follow, Post, & Tag @TheCerealist" — serif / ~32px / Regular / centered / `--text-primary`
+- Title Case (not CSS `capitalize` — hardcode the casing)
+- Two lines on mobile: "Follow, Post, & Tag" / "@TheCerealist"
 
 ## Implementation
 
 ### `src/components/SocialFollow/SocialFollow.tsx`
 
 ```tsx
+import Image from 'next/image'
+import { ContentContainer } from '@/components/ui/ContentContainer'
+
 const socialLinks = [
-  { platform: 'Facebook', icon: '/images/social-facebook.svg', href: '#' },
-  { platform: 'Instagram', icon: '/images/social-instagram.svg', href: '#' },
-  { platform: 'TikTok', icon: '/images/social-tiktok.svg', href: '#' },
-  { platform: 'X', icon: '/images/social-x.svg', href: '#' },
+  { platform: 'Facebook', icon: '/images/facebook-icon.png', href: '#' },
+  { platform: 'Instagram', icon: '/images/instagram-icon.png', href: '#' },
+  { platform: 'TikTok', icon: '/images/tictok-icon.png', href: '#' },
+  { platform: 'X', icon: '/images/x-icon.png', href: '#' },
 ]
 
 export function SocialFollow() {
@@ -49,19 +72,19 @@ export function SocialFollow() {
                 key={platform}
                 href={href}
                 aria-label={`Follow us on ${platform}`}
-                className="block"
+                className="block transition-transform drop-shadow-[3px_3px_0px_rgba(0,0,0,0.4)] active:translate-x-[2px] active:translate-y-[2px] active:drop-shadow-[1px_1px_0px_rgba(0,0,0,0.4)]"
               >
                 <Image
                   src={icon}
                   alt={platform}
-                  width={62}
-                  height={62}
+                  width={80}
+                  height={80}
                 />
               </a>
             ))}
           </div>
-          <p className="font-serif text-[32px] text-text-primary text-center capitalize">
-            Follow, post, &amp; tag @theCerealist
+          <p className="font-serif text-[32px] text-text-primary text-center">
+            Follow, Post, &amp; Tag @TheCerealist
           </p>
         </div>
       </ContentContainer>
@@ -73,12 +96,14 @@ export function SocialFollow() {
 ## Dependencies
 
 - `ContentContainer`
-- Social icon SVG assets in `/public/images/`
+- Social icon PNG assets in `/public/images/` (already present)
 
 ## Verify When Done
 
-- [ ] Four social icons render in a horizontal row
+- [ ] Four icon boxes render in a horizontal row with ~6px gap
+- [ ] Each icon has drop shadow (3px 3px offset)
+- [ ] Each icon shows press effect on active (translates 2px down-right, shadow shrinks)
 - [ ] Each icon is a link with correct `aria-label`
-- [ ] "Follow, post, & tag @theCerealist" text renders below icons
-- [ ] Layout is centered
+- [ ] "Follow, Post, & Tag @TheCerealist" text renders below icons, centered, serif, ~32px
+- [ ] Layout matches design on desktop and mobile
 - [ ] No TypeScript errors

@@ -14,7 +14,7 @@ export default function ContentContainer({
 }: ContentContainerProps) {
   return (
     <div
-      className={`w-full max-w-[1383px] mx-auto px-4 md:px-[30px] ${className}`}
+      className={`w-full mx-auto ${className}`}
     >
       {children}
     </div>

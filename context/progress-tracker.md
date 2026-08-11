@@ -4,11 +4,11 @@ Update this file after every meaningful implementation change.
 
 ## Current Phase
 
-- Implementation — Spec 04 (Hero) complete, proceeding to Spec 05 (OpinionSection)
+- Implementation — Spec 09 (Footer) complete
 
 ## Current Goal
 
-- Implement OpinionSection per `context/feature-specs/05-opinion.md`
+- Implement ArticleGrid (Spec 06) — next up
 
 ## Completed
 
@@ -38,6 +38,12 @@ Update this file after every meaningful implementation change.
   - Wrapped in `ContentContainer` for consistent padding
   - `DoubleRule` at bottom (replaces old `RuleLine`)
   - `npm run build` passes ✅
+- **Spec 05 — Opinion/Editorial** ✅
+  - `SectionHeader` updated: single rule / centered label with flanking hairlines / single rule
+  - `PullQuote` created at `src/components/ui/PullQuote.tsx` — double rules above/below, centered italic
+  - `OpinionSection` rewritten: full-width centered article header, double-rule separator, 50/50 desktop grid (image left, text right), drop cap "C" on both desktop+mobile, mobile image floats right in continuation paragraph
+  - Spec corrected: single hairlines (not double), mobile left-aligned, drop cap on mobile, mobile float-right image, full continuation text
+  - `npm run build` passes ✅
 - **Spec 04 — Hero** ✅
   - Desktop: two-column grid (`1fr 596px`), left text + right image
   - Headline 41px mobile / 79px desktop, SemiBold, -2% tracking
@@ -50,6 +56,14 @@ Update this file after every meaningful implementation change.
   - `--color-border-outline: #606060` added to globals.css
   - Uses `next/image` with `priority` on desktop image
   - `npm run build` passes ✅
+
+- **Spec 09 — Footer** ✅
+  - Footer nav bar with `button-bg.png` background — "Cereal | Granola | Contact the Desk" pipe-separated
+  - Legal links left-aligned, uppercase, on `--bg-footer` (#F8EDE7)
+  - `©` text + `the-cerealist-text.png` image wordmark row
+  - `footer-cereal-box.png` absolutely positioned right side of wordmark
+  - Tagline "Cereal, Grown Up." flanked by `<hr>` rules on both sides
+  - Replaces old placeholder Footer.tsx
 
 ## In Progress
 

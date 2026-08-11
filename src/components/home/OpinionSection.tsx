@@ -1,48 +1,91 @@
+import Image from "next/image";
+import ContentContainer from "@/components/ui/ContentContainer";
 import SectionHeader from "@/components/SectionHeader";
-import DropCap from "@/components/DropCap";
+import DoubleRule from "@/components/DoubleRule";
+import PullQuote from "@/components/ui/PullQuote";
 
 export default function OpinionSection() {
   return (
-    <section className="pt-6 pb-6 border-b-2 border-ink">
-      <SectionHeader label="Opinion" sublabel="The Editorial Side" center />
+    <section className="bg-transparent">
+      <ContentContainer>
 
-      <div className="grid grid-cols-[1fr_1px_1fr] gap-0 pt-6">
-        {/* Left editorial */}
-        <div className="pr-8">
-          <h3 className="font-[family-name:var(--font-crimson)] font-bold text-[52px] leading-[1.0] tracking-[-1px] text-ink mb-3">
+        {/* Section header: single rule / label row / single rule */}
+        <SectionHeader label="OPINION" sublabel="The Editorial Side" />
+
+        <article className="mt-6">
+
+          {/* ── Article header (full-width, centered) ─────────────── */}
+          <h2 className="font-[family-name:var(--font-crimson)] font-semibold text-[41px] md:text-[79px] text-ink text-center leading-[0.93] tracking-[-0.02em]">
             It Was Never Just About the Cereal
-          </h3>
-          <p className="font-[family-name:var(--font-crimson)] italic text-[22px] leading-[1.3] text-ink-warm mb-4">
+          </h2>
+          <p className="font-[family-name:var(--font-crimson)] italic text-[27px] md:text-[40px] text-ink-warm text-center mt-4">
             How breakfast lost its stories, and what happened next.
           </p>
-          <div className="border-t border-ink mb-3" />
-          <p className="font-[family-name:var(--font-crimson)] font-semibold text-[14px] tracking-[2px] text-ink uppercase mb-4">
-            By The Editorial Board
+          <p className="font-[family-name:var(--font-crimson)] font-bold text-[18px] md:text-[30px] uppercase tracking-[0.6px] text-ink text-left md:text-center mt-3">
+            BY THE EDITORIAL BOARD
           </p>
-        </div>
 
-        <div className="bg-ink" />
+          <DoubleRule className="my-6" />
 
-        <div className="pl-8">
-          <p className="font-[family-name:var(--font-crimson)] text-[22px] leading-[1.6] text-ink-mid mb-4">
-            <DropCap letter="C" size="text-[56px]" />
-            ereal used to be more than cereal. It was something you wanted to eat, and something
-            you wanted to look at. Flavor, color, crunch, alongside games, stories, characters.
-            It wasn&apos;t just breakfast. It was an <em>experience</em>.
-          </p>
-          <blockquote className="border-t border-b border-ink py-3 my-4 text-center">
-            <p className="font-[family-name:var(--font-crimson)] italic text-[26px] text-ink-mid">
-              &ldquo;It wasn&apos;t just breakfast. It was an experience.&rdquo;
-            </p>
-          </blockquote>
-          <p className="font-[family-name:var(--font-crimson)] text-[22px] leading-[1.6] text-ink-mid">
-            As it turns out, that&apos;s not a small thing to lose. We brought it back, just{" "}
-            <em>differently</em>. The Cerealist is the adult version of what cereal always was,
-            something delicious and something entertaining, only now the entertainment grew up too.
-            Instead of games and mascots, it&apos;s cartoons, commentary, and headlines.
-          </p>
-        </div>
-      </div>
+          {/* ── Two-column body ───────────────────────────────────── */}
+          <div className="md:grid md:grid-cols-[5fr_6fr] md:gap-10 md:items-start">
+
+            {/* Left: image (desktop only) */}
+            <div className="hidden md:block">
+              <Image
+                src="/images/article-cereal-box-image.png"
+                alt="The Cerealist cereal box, Vol. I"
+                width={930}
+                height={796}
+                className="w-full h-auto"
+              />
+            </div>
+
+            {/* Right: article text */}
+            <div>
+              {/* Drop cap body paragraph */}
+              <div className="font-[family-name:var(--font-crimson)] text-[27px] md:text-[35px] text-ink-mid leading-[34px] md:leading-[43px]">
+                <span
+                  aria-hidden="true"
+                  className="float-left font-[family-name:var(--font-crimson)] font-semibold text-[105px] leading-none tracking-[-0.02em] text-ink mr-1"
+                >
+                  C
+                </span>
+                ereal used to be more than cereal. It was something you wanted to eat, and
+                something you wanted to look at. Flavor, color, crunch, alongside games,
+                stories, characters. It wasn&apos;t just breakfast. It was an{" "}
+                <em>experience</em>.
+              </div>
+              <div className="clear-both" />
+
+              {/* Pull quote */}
+              <PullQuote text="It wasn't just breakfast. It was an experience." />
+
+              {/* Continuation text with mobile float image */}
+              <div className="font-[family-name:var(--font-crimson)] text-[24px] md:text-[34px] text-ink-mid leading-[32px] md:leading-[44px]">
+                {/* Mobile: image floats right within continuation text */}
+                <div className="md:hidden float-right ml-4 mb-2 w-[45%]">
+                  <Image
+                    src="/images/article-cereal-box-image.png"
+                    alt="The Cerealist cereal box, Vol. I"
+                    width={930}
+                    height={796}
+                    className="w-full h-auto"
+                  />
+                </div>
+                As it turns out, that&apos;s not a small thing to lose. We brought it back,
+                just <em>differently</em>. The Cerealist is the adult version of what cereal
+                always was, something delicious and something entertaining, only now the
+                entertainment grew up too. Instead of games and mascots, it&apos;s cartoons,
+                commentary, and headlines.
+              </div>
+              <div className="clear-both" />
+            </div>
+
+          </div>
+        </article>
+
+      </ContentContainer>
     </section>
   );
 }

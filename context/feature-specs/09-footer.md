@@ -2,128 +2,153 @@
 
 ## Goal
 
-Implement the site footer with navigation pills, large wordmark, tagline, legal links, and copyright.
+Implement the site footer with a nav bar, legal links, large copyright wordmark with cereal box image, and tagline with decorative rules.
 
 ## Design
 
 Figma node: `6657:358`, `6657:779`.
 
-Background: `--bg-footer` (#F8EDE7).
-
 ### Layout (top to bottom)
 
-1. **Nav Pills Row**: Three outlined pill buttons — "Cereal", "Granola", "Contact the Desk"
-2. **Large Wordmark**: "The Cerealist" — massive serif wordmark, centered
-3. **Tagline**: "Cereal, Grown Up." — 60.3px / SemiBold / `--text-headline` / centered
-4. **Decorative divider**: horizontal rule below tagline
-5. **Legal Links Row**: "TERMS OF SERVICE" | "PRIVACY POLICY" | "ACCESSIBILITY" — 29.4px / SemiBold / centered with gap
-6. **Copyright**: "©" symbol + "The Cerealist" (smaller) — bottom of footer
+1. **Footer Nav Bar**: "Cereal | Granola | Contact the Desk" — dark background using `/images/button-bg.png`, same visual style as the top NavBar
+2. **Legal Links Row**: "TERMS OF SERVICE"  "PRIVACY POLICY"  "ACCESSIBILITY" — left-aligned, small uppercase, on `--bg-footer` (#F8EDE7)
+3. **Wordmark + Cereal Box Row**: `© The Cerealist` wordmark (image) on the left, `footer-cereal-box.png` on the right
+4. **Tagline with Decorative Rules**: `——— Cereal, Grown Up. ———` centered with horizontal lines on both sides
 
-### Nav Pills
+### Footer Nav Bar
 
-Each pill: outlined, border 1.4px black, border-radius 31px (pill), text is ~40.9px SemiBold in `--bg-warm-light` color. Separated by vertical dividers (`|` or SVG line).
-
-Pill items: Cereal | Granola | Contact the Desk
-
-### Wordmark Area
-
-Large "The Cerealist" masthead — either use the same SVG wordmark asset or render as large bold serif:
-- ~1100px wide on desktop
-- Slight rotation (0.47deg) matching Figma
-
-Behind the wordmark: decorative paper texture strip (same as masthead).
-
-### Tagline
-
-"Cereal, Grown Up." — 60.3px / SemiBold / centered / `--text-headline`
+- Background: `style={{ backgroundImage: 'url(/images/button-bg.png)' }}` covering full width
+- Nav items: "Cereal" | "Granola" | "Contact the Desk" separated by `|` dividers
+- Same styling as top NavBar (white/light text, SemiBold serif)
 
 ### Legal Links
 
-Three text items centered with spacing, all uppercase SemiBold 29.4px:
+Three items, left-aligned, spaced, uppercase SemiBold ~18px, `--text-primary` color:
+
 - "TERMS OF SERVICE"
-- "PRIVACY POLICY"  
+- "PRIVACY POLICY"
 - "ACCESSIBILITY"
 
-### Copyright
+### Large Copyright Wordmark
 
-"© The Cerealist" — standard copyright, bottom
+- `©` rendered as inline text (large, ~80px) immediately before the wordmark image
+- Wordmark: `<Image src="/images/the-cerealist-text.png" alt="The Cerealist" />` — do NOT render as text
+- Full width, left-anchored
+
+### Right Side Decorative Image
+
+- `<Image src="/images/footer-cereal-box.png" alt="" />` — absolutely positioned right side
+- Overlaps wordmark row, bottom-aligned
+
+### Tagline with Decorative Rules
+
+- Flexbox row: `<hr flex-1 />` + `<span>Cereal, Grown Up.</span>` + `<hr flex-1 />`
+- Font: SemiBold ~28–32px, `--text-headline` color
 
 ## Implementation
 
 ### `src/components/Footer/Footer.tsx`
 
 ```tsx
+import Image from 'next/image'
+import { ContentContainer } from '@/components/ui/ContentContainer'
+
 export function Footer() {
   const navItems = ['Cereal', 'Granola', 'Contact the Desk']
   const legalLinks = ['Terms of Service', 'Privacy Policy', 'Accessibility']
 
   return (
-    <footer className="bg-bg-footer pt-12 pb-8">
-      <ContentContainer>
-        {/* Nav pills */}
-        <div className="flex items-center justify-center gap-4 mb-8">
-          {navItems.map((item, i) => (
-            <>
-              {i > 0 && <VerticalDivider />}
+    <footer>
+      {/* Footer nav bar */}
+      <div
+        className="w-full py-3"
+        style={{ backgroundImage: 'url(/images/button-bg.png)', backgroundSize: 'cover' }}
+      >
+        <ContentContainer>
+          <div className="flex items-center gap-6">
+            {navItems.map((item, i) => (
+              <span key={item} className="flex items-center gap-6">
+                {i > 0 && <span className="text-white/60">|</span>}
+                <a href="#" className="font-serif font-semibold text-white text-lg">
+                  {item}
+                </a>
+              </span>
+            ))}
+          </div>
+        </ContentContainer>
+      </div>
+
+      {/* Footer body */}
+      <div className="bg-[#F8EDE7] pt-6 pb-10">
+        <ContentContainer>
+          {/* Legal links — left-aligned */}
+          <div className="flex items-center gap-6 mb-6">
+            {legalLinks.map((link) => (
               <a
-                key={item}
+                key={link}
                 href="#"
-                className="font-serif font-bold text-[41px] text-bg-warm-light border border-black rounded-pill px-6 py-1"
+                className="font-sans font-semibold text-sm uppercase tracking-widest text-text-primary"
               >
-                {item}
+                {link}
               </a>
-            </>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Large wordmark */}
-        <div className="text-center my-8">
-          <span className="font-serif font-bold text-[120px] leading-none tracking-tight text-text-headline">
-            The Cerealist
-          </span>
-        </div>
+          {/* Wordmark + cereal box */}
+          <div className="relative flex items-end">
+            <div className="flex items-center gap-2">
+              <span className="font-serif text-[80px] leading-none text-text-headline">©</span>
+              <Image
+                src="/images/the-cerealist-text.png"
+                alt="The Cerealist"
+                width={900}
+                height={140}
+                className="h-auto w-full max-w-[900px]"
+              />
+            </div>
+            <Image
+              src="/images/footer-cereal-box.png"
+              alt=""
+              width={300}
+              height={400}
+              className="absolute right-0 bottom-0 w-[180px] md:w-[280px]"
+            />
+          </div>
 
-        {/* Tagline */}
-        <p className="font-serif font-semibold text-[60px] text-text-headline text-center">
-          Cereal, Grown Up.
-        </p>
-
-        <hr className="border-text-primary my-6" />
-
-        {/* Legal links */}
-        <div className="flex items-center justify-center gap-6">
-          {legalLinks.map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="font-serif font-semibold text-[29px] uppercase text-text-primary"
-            >
-              {link}
-            </a>
-          ))}
-        </div>
-
-        {/* Copyright */}
-        <p className="font-serif text-center text-text-primary mt-4">
-          © The Cerealist
-        </p>
-      </ContentContainer>
+          {/* Tagline with decorative side rules */}
+          <div className="flex items-center gap-4 mt-4">
+            <hr className="flex-1 border-text-headline" />
+            <span className="font-serif font-semibold text-[28px] text-text-headline whitespace-nowrap">
+              Cereal, Grown Up.
+            </span>
+            <hr className="flex-1 border-text-headline" />
+          </div>
+        </ContentContainer>
+      </div>
     </footer>
   )
 }
 ```
 
+## Assets
+
+| Asset | Path | Usage |
+|-------|------|-------|
+| Footer nav background | `/images/button-bg.png` | `backgroundImage` on footer nav bar |
+| Wordmark | `/images/the-cerealist-text.png` | `<Image>` in copyright row |
+| Cereal box | `/images/footer-cereal-box.png` | `<Image>` absolutely positioned right |
+
 ## Dependencies
 
 - `ContentContainer`
-- Wordmark SVG (optional — can render as text)
+- `next/image`
 
 ## Verify When Done
 
-- [ ] Footer background is `--bg-footer` (#F8EDE7)
-- [ ] Three nav pills render with pill border and correct labels
-- [ ] Large "The Cerealist" wordmark renders centered
-- [ ] "Cereal, Grown Up." tagline at 60px renders below wordmark
-- [ ] Legal links render as three centered uppercase links
-- [ ] Copyright "© The Cerealist" at bottom
+- [ ] Footer nav bar renders with `button-bg.png` background and three nav items
+- [ ] Footer body background is `--bg-footer` (#F8EDE7)
+- [ ] Legal links render left-aligned, uppercase, spaced
+- [ ] `©` text + `the-cerealist-text.png` image render side by side
+- [ ] `footer-cereal-box.png` appears on right side of wordmark row
+- [ ] Tagline centered with horizontal rules on both sides
 - [ ] No TypeScript errors

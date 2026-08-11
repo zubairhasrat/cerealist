@@ -11,7 +11,8 @@ Figma node: `6657:305`.
 ### Section Header
 
 "WHY ADULTS LOVE THE CEREALIST" — 28.5px / SemiBold / uppercase / centered
-Double hairline rules above and below.
+`<DoubleRule />` above and below the label (full-width, not flanking).
+Section has 32px margin-top (`mt-8`).
 
 ### Cards Layout
 
@@ -35,45 +36,51 @@ Double hairline rules below the three cards.
 
 ## Implementation
 
-### `src/components/WhyAdultsLove/WhyAdultsLove.tsx`
+### `src/components/home/WhyAdultsSection.tsx`
 
 ```tsx
+import SectionHeader from "@/components/SectionHeader";
+import DoubleRule from "@/components/DoubleRule";
+import ContentContainer from "@/components/ui/ContentContainer";
+
 const reasons = [
   'For people who miss the childhood breakfast experience.',
   'For people who still love print culture.',
   'For people who want a morning ritual that brings back memories.',
 ]
 
-export function WhyAdultsLove() {
+export default function WhyAdultsSection() {
   return (
-    <section>
+    <section className="mt-8">
       <ContentContainer>
-        <SectionHeader label="WHY ADULTS LOVE THE CEREALIST" />
+        <DoubleRule />
+        <p className="font-crimson font-semibold text-[28.5px] uppercase tracking-wide text-center py-3">
+          WHY ADULTS LOVE THE CEREALIST
+        </p>
+        <DoubleRule />
         <div className="flex flex-col md:flex-row gap-[29px] mt-6">
           {reasons.map((text) => (
-            <FeatureCard key={text} text={text} />
+            <div
+              key={text}
+              className="flex-1 rounded-[20px] border-[2.9px] border-rule-light bg-[var(--color-card)] px-12 py-5 text-center"
+            >
+              <p className="font-[family-name:var(--font-crimson)] text-[25px] text-ink-mid leading-normal">{text}</p>
+            </div>
           ))}
         </div>
-        <SectionDivider />
+        <DoubleRule className="mt-6" />
       </ContentContainer>
     </section>
   )
 }
-
-function FeatureCard({ text }: { text: string }) {
-  return (
-    <div className="flex-1 rounded-xl border-[2.9px] border-[#7F7C7C] bg-bg-card px-12 py-5 text-center">
-      <p className="font-serif text-[25px] text-text-secondary leading-normal">{text}</p>
-    </div>
-  )
-}
 ```
 
-Note: The grey border color `#7F7C7C` does not have a CSS variable — add `--border-grey: #7F7C7C` to globals if needed.
+Note: `--color-rule-light: #7F7C7C` already exists in globals.css — no new token needed.
+`--color-card: rgba(233 219 203 / 0.3)` also already defined.
 
 ## Dependencies
 
-- `SectionHeader`, `SectionDivider`, `ContentContainer`
+- `DoubleRule`, `ContentContainer` (no SectionHeader — header is inlined with DoubleRule pattern)
 
 ## Verify When Done
 

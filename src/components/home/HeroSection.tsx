@@ -4,7 +4,7 @@ import CTAButton from "@/components/CTAButton";
 
 export default function HeroSection() {
   return (
-    <section className="bg-paper">
+    <section className="bg-transparent">
       <ContentContainer className="md:px-12">
         <div className="grid md:grid-cols-[1fr_596px] gap-8 py-8 md:py-12">
 
