@@ -28,26 +28,26 @@ export default function OpinionSection() {
           <DoubleRule className="my-6" />
 
           {/* ── Two-column body ───────────────────────────────────── */}
-          <div className="md:grid md:grid-cols-[5fr_6fr] md:gap-10 md:items-start">
-
-            {/* Left: image (desktop only) */}
-            <div className="hidden md:block">
+          {/* Desktop: Figma proportions — image 58%, text 42%, image overlaps text by ~15% */}
+          <div className="relative hidden md:block">
+            {/* Image: IN FLOW at 58% — drives container height */}
+            <div className="w-[58%]">
               <Image
-                src="/images/article-cereal-box-image.png"
-                alt="The Cerealist cereal box, Vol. I"
-                width={930}
-                height={796}
+                src="/images/cereal-box-bowl.png"
+                alt="The Cerealist cereal box and bowl, Vol. I"
+                width={1595}
+                height={1592}
                 className="w-full h-auto"
               />
             </div>
 
-            {/* Right: article text */}
-            <div>
+            {/* Text: absolute, starts at 43% from left, overlaps image by 15% */}
+            <div className="absolute top-[30px] left-[43%] right-0 z-10">
               {/* Drop cap body paragraph */}
-              <div className="font-[family-name:var(--font-crimson)] text-[27px] md:text-[35px] text-ink-mid leading-[34px] md:leading-[43px]">
+              <div className="font-[family-name:var(--font-crimson)] text-[35px] text-ink-mid leading-[43px] max-w-[80%]">
                 <span
                   aria-hidden="true"
-                  className="float-left font-[family-name:var(--font-crimson)] font-semibold text-[105px] leading-none tracking-[-0.02em] text-ink mr-1"
+                  className="float-left font-[family-name:var(--font-crimson)] font-semibold text-[105px] leading-[0.8] tracking-[-0.02em] text-ink mr-1"
                 >
                   C
                 </span>
@@ -59,29 +59,67 @@ export default function OpinionSection() {
               <div className="clear-both" />
 
               {/* Pull quote */}
-              <PullQuote text="It wasn't just breakfast. It was an experience." />
-
-              {/* Continuation text with mobile float image */}
-              <div className="font-[family-name:var(--font-crimson)] text-[24px] md:text-[34px] text-ink-mid leading-[32px] md:leading-[44px]">
-                {/* Mobile: image floats right within continuation text */}
-                <div className="md:hidden float-right ml-4 mb-2 w-[45%]">
-                  <Image
-                    src="/images/article-cereal-box-image.png"
-                    alt="The Cerealist cereal box, Vol. I"
-                    width={930}
-                    height={796}
-                    className="w-full h-auto"
-                  />
-                </div>
-                As it turns out, that&apos;s not a small thing to lose. We brought it back,
-                just <em>differently</em>. The Cerealist is the adult version of what cereal
-                always was, something delicious and something entertaining, only now the
-                entertainment grew up too. Instead of games and mascots, it&apos;s cartoons,
-                commentary, and headlines.
+              <div className="max-w-[70%]">
+                <PullQuote text="It wasn't just breakfast. It was an experience." />
               </div>
-              <div className="clear-both" />
+
+              {/* Continuation text — 4 nodes matching Figma stagger */}
+              <div className="font-[family-name:var(--font-crimson)] text-[34px] text-ink-mid leading-[44px]">
+                {/* Figma 6643:213 — full width */}
+                <span className="block max-w-[70%]">
+                  As it turns out, that&apos;s not a small thing to lose. We brought it back,
+                  just <em>differently</em>.
+                </span>
+                {/* Figma 6643:212 — full width */}
+                <span className="block">
+                  The Cerealist is the adult version of what
+                </span>
+                {/* Figma 6643:208 — indent 20% (x=786, col starts 630, col width 780) */}
+                <span className="block pl-[20%]">
+                  cereal always was, something delicious and
+                </span>
+                {/* Figma 6643:215 — indent 32% (x=882, col starts 630, col width 780) */}
+                <span className="block pl-[32%]">
+                  something entertaining, only now the entertainment grew up too.
+                  Instead of games and mascots, it&apos;s cartoons, commentary, and headlines.
+                </span>
+              </div>
             </div>
 
+          </div>
+
+          {/* Mobile: stacked layout */}
+          <div className="md:hidden">
+            <div className="font-[family-name:var(--font-crimson)] text-[27px] text-ink-mid leading-[34px]">
+              <div className="float-right ml-4 mb-2 w-[45%]">
+                <Image
+                  src="/images/cereal-box-bowl.png"
+                  alt="The Cerealist cereal box and bowl, Vol. I"
+                  width={1595}
+                  height={1592}
+                  className="w-full h-auto"
+                />
+              </div>
+              <span
+                aria-hidden="true"
+                className="float-left font-[family-name:var(--font-crimson)] font-semibold text-[105px] leading-none tracking-[-0.02em] text-ink mr-1"
+              >
+                C
+              </span>
+              ereal used to be more than cereal. It was something you wanted to eat, and
+              something you wanted to look at. Flavor, color, crunch, alongside games,
+              stories, characters. It wasn&apos;t just breakfast. It was an{" "}
+              <em>experience</em>.
+            </div>
+            <div className="clear-both" />
+            <PullQuote text="It wasn't just breakfast. It was an experience." />
+            <div className="font-[family-name:var(--font-crimson)] text-[24px] text-ink-mid leading-[32px]">
+              As it turns out, that&apos;s not a small thing to lose. We brought it back,
+              just <em>differently</em>. The Cerealist is the adult version of what cereal
+              always was, something delicious and something entertaining, only now the
+              entertainment grew up too. Instead of games and mascots, it&apos;s cartoons,
+              commentary, and headlines.
+            </div>
           </div>
         </article>
 
