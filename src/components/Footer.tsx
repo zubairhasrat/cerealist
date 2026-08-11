@@ -18,7 +18,7 @@ export default function Footer() {
   return (
     <footer className="w-full mt-auto md:px-10">
       {/* ── Promo strip: headline + cereal box ─────────────────── */}
-      <div className="bg-paper">
+      <div>
         <ContentContainer className="px-4 md:px-[30px]">
           <div className="relative flex items-end pt-6 pb-0">
             {/* Headline */}

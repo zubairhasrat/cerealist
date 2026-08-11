@@ -90,7 +90,11 @@
 }
 
 body {
-  background: var(--color-paper);
+  background-color: var(--color-paper);
+  background-image: url('/images/paper-texture.png');
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  background-position: top center;
   color: var(--color-ink);
   font-family: var(--font-serif);
 }

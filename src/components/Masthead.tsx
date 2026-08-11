@@ -4,7 +4,7 @@ import DoubleRule from "./DoubleRule";
 
 export default function Masthead() {
   return (
-    <header className="w-full bg-paper hidden md:block">
+    <header className="w-full hidden md:block">
       <ContentContainer>
         {/* Row 1: Vol. I · No. 1 | CEREAL, GROWN UP. | PRICE $19.99 */}
         <div className="pt-[14px] pb-1 flex items-center justify-between font-[family-name:var(--font-crimson)] font-bold text-[26px] leading-none text-ink">

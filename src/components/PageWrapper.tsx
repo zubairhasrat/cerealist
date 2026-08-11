@@ -9,7 +9,7 @@ interface PageWrapperProps {
   outerStyle?: React.CSSProperties;
 }
 
-export default function PageWrapper({ children, className = "", outerClassName = "bg-paper", outerStyle }: PageWrapperProps) {
+export default function PageWrapper({ children, className = "", outerClassName = "", outerStyle }: PageWrapperProps) {
   return (
     <div className={`flex flex-col min-h-screen ${outerClassName}`} style={outerStyle}>
       <Masthead />
