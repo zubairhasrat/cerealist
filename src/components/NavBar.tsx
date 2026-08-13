@@ -14,7 +14,7 @@ export default function NavBar() {
       {/* ── Desktop ─────────────────────────────────────────────── */}
       <div className="hidden md:block">
         <ContentContainer className="flex items-center justify-between py-[6px]">
-          {/* Left: date — SemiBold Italic 25.7px */}
+          {/* Left: date */}
           <span className="font-[family-name:var(--font-crimson)] font-semibold italic text-[26px] leading-none text-ink shrink-0">
             Wednesday, March 25, 2026
           </span>
@@ -36,7 +36,7 @@ export default function NavBar() {
             ))}
           </div>
 
-          {/* Right: SUBSCRIBE button with paper texture bg */}
+          {/* Right: SUBSCRIBE button */}
           <Link
             href="/subscription"
             className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[34px] leading-none h-[39px] px-[28px] flex items-center rounded-[5px] border border-ink shadow-[1px_3px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all whitespace-nowrap shrink-0 overflow-hidden"
@@ -48,33 +48,21 @@ export default function NavBar() {
       </div>
 
       {/* ── Mobile ──────────────────────────────────────────────── */}
-      <div className="flex md:hidden bg-paper">
-        <ContentContainer className="flex items-center justify-between py-3">
-          {/* Left: hamburger */}
-          <button
-            aria-label="Open menu"
-            className="flex flex-col gap-[10px] shrink-0"
+      <div className="flex md:hidden">
+        <ContentContainer className="flex items-center justify-between py-[8px]">
+          {/* Left: date */}
+          <span className="font-[family-name:var(--font-crimson)] font-semibold italic text-[12px] leading-none text-ink shrink-0">
+            Wednesday, March 25, 2026
+          </span>
+
+          {/* Right: SUBSCRIBE button */}
+          <Link
+            href="/subscription"
+            className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[13px] leading-none h-[28px] px-[12px] flex items-center rounded-[4px] border border-ink shadow-[1px_2px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all whitespace-nowrap shrink-0 overflow-hidden"
+            style={{ backgroundImage: "url('/images/button-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
           >
-            {[0, 1, 2].map((i) => (
-              <span
-                key={i}
-                className="block w-[29px] h-[3px] bg-ink rounded-[10px]"
-              />
-            ))}
-          </button>
-
-          {/* Center: wordmark + tagline */}
-          <div className="flex flex-col items-center">
-            <span className="font-[family-name:var(--font-crimson)] font-bold text-2xl leading-none text-ink">
-              The Cerealist
-            </span>
-            <span className="font-[family-name:var(--font-crimson)] italic text-base leading-none text-ink mt-1">
-              Cereal, Grown Up.
-            </span>
-          </div>
-
-          {/* Right spacer — keeps center truly centered */}
-          <span className="w-[29px] shrink-0" aria-hidden />
+            SUBSCRIBE FOR $19/ MONTH
+          </Link>
         </ContentContainer>
       </div>
 

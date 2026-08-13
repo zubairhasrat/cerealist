@@ -19,15 +19,19 @@ export default function Footer() {
     <footer className="w-full mt-auto md:px-10">
       {/* ── Promo strip: headline + cereal box ─────────────────── */}
       <div>
-        <ContentContainer className="px-4 md:px-[30px]">
-          <div className="relative flex items-end pt-6 pb-0">
+        <ContentContainer className="md:px-[30px]">
+          <div className="relative flex items-end pt-4 md:pt-6 pb-0">
             {/* Headline */}
-            <h2 className="font-[family-name:var(--font-crimson)] font-bold text-[32px] md:text-[78px] leading-[1.1] text-ink max-w-[55%] pb-4">
+            <h2 className="hidden md:block font-[family-name:var(--font-crimson)] font-bold text-[26px] md:text-[78px] leading-[1.1] text-ink max-w-[60%] pb-4">
               The Morning Paper,<br />Now on Cereal!
             </h2>
 
+            <h2 className="md:hidden font-[family-name:var(--font-crimson)] font-bold text-[26px] md:text-[78px] leading-[1.1] text-ink max-w-[65%] pb-4">
+              The Morning Paper, Now on Cereal!
+            </h2>
+
             {/* Cereal box — top-right, overflows into nav bar slightly */}
-            <div className="absolute right-0 bottom-0 w-[42%] md:w-[45%] max-w-[443px]">
+            <div className="absolute -right-2 md:right-0 bottom-0 w-[40%] md:w-[45%] max-w-[443px]">
               <Image
                 src="/images/footer-cerealist-box.png"
                 alt="The Cerealist newspaper"
@@ -53,11 +57,11 @@ export default function Footer() {
           {NAV_ITEMS.map((item, i) => (
             <span key={item.label} className="flex items-center md:ml-6">
               {i > 0 && (
-                <span className="mx-6 md:mx-10 w-[2px] h-[24px] bg-cream-light block shrink-0" />
+                <span className="mx-3 md:mx-10 w-[2px] h-[20px] md:h-[24px] bg-cream-light block shrink-0" />
               )}
               <Link
                 href={item.href}
-                className="font-[family-name:var(--font-crimson)] font-semibold text-[20px] md:text-[27px] leading-none text-cream-light hover:opacity-75 whitespace-nowrap"
+                className="font-[family-name:var(--font-crimson)] font-bold text-[18px] md:text-[27px] leading-none text-cream-light hover:opacity-75 whitespace-nowrap"
               >
                 {item.label}
               </Link>
@@ -67,15 +71,15 @@ export default function Footer() {
       </div>
 
       {/* ── Footer body ────────────────────────────────────────── */}
-      <div className="pt-4 pb-10">
+      <div className="pt-2 md:pt-4 pb-10">
         <ContentContainer>
           {/* Legal links — left-aligned, uppercase */}
-          <div className="flex gap-4 md:gap-8 py-3 mb-4">
+          <div className="flex flex-wrap gap-3 md:gap-8 pb-3 mb-4">
             {LEGAL_LINKS.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="font-[family-name:var(--font-crimson)] font-semibold text-[13px] md:text-[17px] uppercase tracking-widest text-ink hover:opacity-75 whitespace-nowrap"
+                className="font-[family-name:var(--font-crimson)] font-semibold text-[11px] md:text-[17px] uppercase tracking-widest text-ink hover:opacity-75 whitespace-nowrap"
               >
                 {link.label}
               </Link>

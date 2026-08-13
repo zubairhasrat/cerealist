@@ -90,16 +90,8 @@ export default function OpinionSection() {
 
           {/* Mobile: stacked layout */}
           <div className="md:hidden">
+            {/* First paragraph — drop cap, full width */}
             <div className="font-[family-name:var(--font-crimson)] text-[27px] text-ink-mid leading-[34px]">
-              <div className="float-right ml-4 mb-2 w-[45%]">
-                <Image
-                  src="/images/cereal-box-bowl.png"
-                  alt="The Cerealist cereal box and bowl, Vol. I"
-                  width={1595}
-                  height={1592}
-                  className="w-full h-auto"
-                />
-              </div>
               <span
                 aria-hidden="true"
                 className="float-left font-[family-name:var(--font-crimson)] font-semibold text-[105px] leading-none tracking-[-0.02em] text-ink mr-1"
@@ -113,13 +105,43 @@ export default function OpinionSection() {
             </div>
             <div className="clear-both" />
             <PullQuote text="It wasn't just breakfast. It was an experience." />
+            {/* Second paragraph — image float LEFT with polygon silhouette shape-outside.
+                Float is 70% wide. Polygon right edge traces: box (~83% of float = 58%
+                of container) then bowl shoulder/widest (~97% of float = 68% of container).
+                Text wraps close to box at top, indents past bowl, goes full-width below. */}
             <div className="font-[family-name:var(--font-crimson)] text-[24px] text-ink-mid leading-[32px]">
+              <div
+                className="float-left w-[70%]"
+                style={{
+                  shapeOutside: `polygon(
+                    0% 0%,
+                    65% 0%,
+                    65% 70%,
+                    95% 80%,
+                    97% 86%,
+                    87% 92%,
+                    74% 96%,
+                    74% 100%,
+                    0% 100%
+                  )`,
+                  shapeMargin: "4px",
+                }}
+              >
+                <Image
+                  src="/images/cereal-box-bowl.png"
+                  alt="The Cerealist cereal box and bowl, Vol. I"
+                  width={1595}
+                  height={1592}
+                  className="w-full h-auto"
+                />
+              </div>
               As it turns out, that&apos;s not a small thing to lose. We brought it back,
               just <em>differently</em>. The Cerealist is the adult version of what cereal
               always was, something delicious and something entertaining, only now the
               entertainment grew up too. Instead of games and mascots, it&apos;s cartoons,
               commentary, and headlines.
             </div>
+            <div className="clear-both" />
           </div>
         </article>
 

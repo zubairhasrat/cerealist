@@ -11,12 +11,12 @@ export default function HeroSection() {
           {/* ── Left column ─────────────────────────────────────── */}
           <div>
             {/* Headline */}
-            <h1 className="font-[family-name:var(--font-crimson)] font-semibold text-[41px] md:text-[79px] leading-none tracking-[-0.02em] text-ink">
+            <h1 className="font-[family-name:var(--font-crimson)] font-semibold text-[41px] md:text-[79px] leading-none tracking-[-0.02em] text-ink text-center md:text-left">
               The Morning Paper, Now on Cereal.
             </h1>
 
             {/* Italic subtitle */}
-            <p className="font-[family-name:var(--font-crimson)] italic text-[27px] md:text-[40px] md:leading-[42px] text-ink-warm mt-4">
+            <p className="font-[family-name:var(--font-crimson)] italic text-[27px] md:text-[40px] md:leading-[42px] text-ink-warm mt-4 text-center md:text-left">
               A monthly cereal for people who grew up, but never stopped liking cereal.
             </p>
 
@@ -24,9 +24,9 @@ export default function HeroSection() {
             <hr className="border-ink my-4" />
 
             {/* Body text */}
-            <div className="font-[family-name:var(--font-crimson)] text-[27px] md:text-[35px] text-ink-mid leading-[34px] md:leading-[43px]">
+            <div className="font-[family-name:var(--font-crimson)] text-[20px] md:text-[35px] text-ink-mid leading-[28px] md:leading-[43px]">
               {/* Mobile: image floats left within body text */}
-              <div className="md:hidden float-left mr-4 mb-2 w-[40%]">
+              <div className="md:hidden float-left mr-3 mb-2 w-[38%]">
                 <Image
                   src="/images/hero-image.png"
                   alt="The Cerealist newspaper mockup, Vol. I No. 1"
@@ -44,7 +44,7 @@ export default function HeroSection() {
                 P
               </span>
 
-              art breakfast, part cultural digest. Every box is filled with cereal, cartoons
+              art breakfast, part cultural digest. Every box is filled with cereal, cartoons,
               commentary, and collectible front page energy that&apos;s meant to be read as
               much as it is eaten. Just like cereal always was, only now grown up. A new
               edition arrives every month, current with the headlines you woke up to. Read it
@@ -55,32 +55,32 @@ export default function HeroSection() {
             <div className="clear-both" />
 
             {/* Price lockup */}
-            <hr className="border-ink mt-6 mb-3" />
+            <hr className="border-ink mt-4 md:mt-6 mb-3" />
             <div className="flex items-baseline justify-center gap-2">
-              <span className="font-[family-name:var(--font-crimson)] font-bold text-[40px] text-ink">
+              <span className="font-[family-name:var(--font-crimson)] font-bold text-[28px] md:text-[40px] text-ink">
                 $19.99
               </span>
-              <span className="font-[family-name:var(--font-crimson)] italic text-[31px] text-ink-warm">
+              <span className="font-[family-name:var(--font-crimson)] italic text-[20px] md:text-[31px] text-ink-warm">
                 per monthly edition
               </span>
             </div>
-            <hr className="border-ink mt-3 mb-6" />
+            <hr className="border-ink mt-3 mb-4 md:mb-6" />
 
             {/* CTA buttons */}
-            <div className="flex flex-col gap-3 items-start">
+            <div className="flex flex-col gap-3">
               <CTAButton
                 href="/subscription"
                 variant="hero-dark"
-                size="auto"
-                className="text-[23px] md:text-[39px] px-8 py-3"
+                size="full"
+                className="text-[23px] md:text-[39px] px-8 py-3 text-center"
               >
                 Get this Month&apos;s Issue
               </CTAButton>
               <CTAButton
                 href="/subscription"
                 variant="hero-light"
-                size="auto"
-                className="text-[23px] md:text-[39px] px-8 py-3"
+                size="full"
+                className="text-[23px] md:text-[39px] px-8 py-3 text-center"
               >
                 Preview Last Month&apos;s Issue
               </CTAButton>

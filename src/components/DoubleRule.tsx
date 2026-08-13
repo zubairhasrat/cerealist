@@ -9,6 +9,7 @@ interface DoubleRuleProps {
   /** gap between lines as a Tailwind margin class, e.g. "mt-1", "mt-2" */
   gap?: string;
   className?: string;
+  inverse?: boolean;
 }
 
 export default function DoubleRule({
@@ -17,7 +18,16 @@ export default function DoubleRule({
   thinWidth = 2,
   gap = "mt-1.5",
   className,
+  inverse = false,
 }: DoubleRuleProps) {
+  if (inverse) {
+    return (
+      <div className={className}>
+        <RuleLine strokeWidth={thinWidth} color={color} height={Math.ceil(thinWidth)}  />
+        <RuleLine strokeWidth={thickWidth} color={color} height={Math.ceil(thickWidth)} className={gap} />
+      </div>
+    );
+  }
   return (
     <div className={className}>
       <RuleLine strokeWidth={thickWidth} color={color} height={Math.ceil(thickWidth)} />
