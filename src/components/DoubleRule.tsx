@@ -16,7 +16,7 @@ export default function DoubleRule({
   color = "var(--color-ink)",
   thickWidth = 3,
   thinWidth = 2,
-  gap = "mt-1.5",
+  gap = "mt-1",
   className,
   inverse = false,
 }: DoubleRuleProps) {
