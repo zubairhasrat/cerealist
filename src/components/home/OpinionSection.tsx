@@ -15,13 +15,13 @@ export default function OpinionSection() {
         <article className="mt-6">
 
           {/* ── Article header (full-width, centered) ─────────────── */}
-          <h2 className="font-[family-name:var(--font-crimson)] font-semibold text-[41px] md:text-[79px] text-ink text-center leading-[0.93] tracking-[-0.02em]">
+          <h2 className="font-[family-name:var(--font-crimson)] font-semibold text-[41px] md:text-[60px] xl:text-[79px] text-ink text-center leading-[0.93] tracking-[-0.02em]">
             It Was Never Just About the Cereal
           </h2>
           <p className="font-[family-name:var(--font-crimson)] italic text-[27px] md:text-[40px] text-ink-warm text-center mt-4">
             How breakfast lost its stories, and what happened next.
           </p>
-          <p className="font-[family-name:var(--font-crimson)] font-bold text-[18px] md:text-[30px] uppercase tracking-[0.6px] text-ink text-left md:text-center mt-3">
+          <p className="font-[family-name:var(--font-crimson)] font-bold text-[18px] md:text-[30px] uppercase tracking-[0.6px] text-ink text-center mt-3">
             BY THE EDITORIAL BOARD
           </p>
 
@@ -47,7 +47,7 @@ export default function OpinionSection() {
               <div className="font-[family-name:var(--font-crimson)] text-[35px] text-ink-mid leading-[43px] max-w-[80%]">
                 <span
                   aria-hidden="true"
-                  className="float-left font-[family-name:var(--font-crimson)] font-semibold text-[105px] leading-[0.8] tracking-[-0.02em] text-ink mr-1"
+                  className="float-left font-[family-name:var(--font-crimson)] font-semibold text-[105px] leading-[0.6] sm:leading-[0.8] tracking-[-0.02em] text-ink mr-1"
                 >
                   C
                 </span>

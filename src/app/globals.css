@@ -44,6 +44,7 @@
 
 @theme {
   /* Custom breakpoints (mobile-first, min-width) */
+  --breakpoint-3xs: 270px;   /* ultra-small screens */
   --breakpoint-2xs: 320px;   /* very small phones (iPhone SE 1st gen) */
   --breakpoint-xs: 370px;    /* small phones (iPhone SE 3rd gen, mini) */
   --breakpoint-phone: 430px; /* large phones (iPhone Pro Max, Plus) */
