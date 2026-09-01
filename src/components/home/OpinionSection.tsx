@@ -29,9 +29,10 @@ export default function OpinionSection() {
 
           {/* ── Two-column body ───────────────────────────────────── */}
           {/* Desktop: Figma proportions — image 58%, text 42%, image overlaps text by ~15% */}
-          <div className="relative hidden md:block">
-            {/* Image: IN FLOW at 58% — drives container height */}
-            <div className="w-[58%]">
+          {/* Grid: col1=43%, col2=15% (overlap zone), col3=rest. Image spans cols 1-2, text spans cols 2-3 */}
+          <div className="hidden xl:grid grid-cols-[43%_15%_1fr]">
+            {/* Image: spans cols 1-2 (58% wide), drives row height */}
+            <div className="col-start-1 col-end-3 row-start-1">
               <Image
                 src="/images/cereal-box-bowl.png"
                 alt="The Cerealist cereal box and bowl, Vol. I"
@@ -41,13 +42,13 @@ export default function OpinionSection() {
               />
             </div>
 
-            {/* Text: absolute, starts at 43% from left, overlaps image by 15% */}
-            <div className="absolute top-[30px] left-[43%] right-0 z-10">
+            {/* Text: spans cols 2-3, starts at 43%, overlaps image by 15% */}
+            <div className="col-start-2 col-end-4 row-start-1 z-10 pt-4 lg:pt-6 xl:pt-[30px]">
               {/* Drop cap body paragraph */}
-              <div className="font-[family-name:var(--font-crimson)] text-[35px] text-ink-mid leading-[43px] max-w-[80%]">
+              <div className="font-[family-name:var(--font-crimson)] text-[20px] md:text-[22px] lg:text-[28px] xl:text-[35px] text-ink-mid leading-[1.25] max-w-full xl:max-w-[80%]">
                 <span
                   aria-hidden="true"
-                  className="float-left font-[family-name:var(--font-crimson)] font-semibold text-[105px] leading-[0.6] sm:leading-[0.8] tracking-[-0.02em] text-ink mr-1"
+                  className="float-left font-[family-name:var(--font-crimson)] font-semibold text-[65px] lg:text-[82px] xl:text-[105px] leading-[0.6] tracking-[-0.02em] text-ink mr-1"
                 >
                   C
                 </span>
@@ -59,42 +60,55 @@ export default function OpinionSection() {
               <div className="clear-both" />
 
               {/* Pull quote */}
-              <div className="max-w-[70%]">
+              <div className="max-w-full xl:max-w-[70%]">
                 <PullQuote text="It wasn't just breakfast. It was an experience." />
               </div>
 
-              {/* Continuation text — 4 nodes matching Figma stagger */}
-              <div className="font-[family-name:var(--font-crimson)] text-[34px] text-ink-mid leading-[44px]">
-                {/* Figma 6643:213 — full width */}
-                <span className="block max-w-[70%]">
-                  As it turns out, that&apos;s not a small thing to lose. We brought it back,
-                  just <em>differently</em>.
-                </span>
-                {/* Figma 6643:212 — full width */}
-                <span className="block">
-                  The Cerealist is the adult version of what
-                </span>
-                {/* Figma 6643:208 — indent 20% (x=786, col starts 630, col width 780) */}
-                <span className="block pl-[20%]">
-                  cereal always was, something delicious and
-                </span>
-                {/* Figma 6643:215 — indent 32% (x=882, col starts 630, col width 780) */}
-                <span className="block pl-[32%]">
-                  something entertaining, only now the entertainment grew up too.
-                  Instead of games and mascots, it&apos;s cartoons, commentary, and headlines.
-                </span>
+              {/* Continuation text — shape-outside float traces bowl silhouette so
+                  text wraps naturally around the bowl that bleeds into the text column */}
+              <div className="font-[family-name:var(--font-crimson)] text-[20px] md:text-[22px] lg:text-[28px] xl:text-[35px] text-ink-mid leading-[1.3] pr-2">
+                {/* Invisible float: width = how far bowl extends into text column (~26% of col),
+                    polygon traces bowl's right silhouette. marginTop accounts for the gap between
+                    where continuation text starts and where the bowl first intrudes. */}
+                <div
+                  aria-hidden="true"
+                  className="float-left"
+                  style={{
+                    width: "36%",
+                    height: "7em",
+                    marginTop: "1.5em",
+                    shapeOutside: `polygon(
+                      0% 0%,
+                      0% 0%,
+                      0% 18%,
+                      0 33%,
+                      34% 50%,
+                      84% 65%,
+                      68% 80%,
+                      45% 100%,
+                      0% 100%
+                    )`,
+                    shapeMargin: "8px",
+                  }}
+                />
+                As it turns out, that&apos;s not a small thing to lose. We brought it back,
+                just <em>differently</em>. The Cerealist is the adult version of what cereal
+                always was, something delicious and something entertaining, only now the
+                entertainment grew up too. Instead of games and mascots, it&apos;s cartoons,
+                commentary, and headlines.
               </div>
+              <div className="clear-both" />
             </div>
 
           </div>
 
-          {/* Mobile: stacked layout */}
-          <div className="md:hidden">
+          {/* Mobile + Tablet: stacked layout */}
+          <div className="xl:hidden">
             {/* First paragraph — drop cap, full width */}
             <div className="font-[family-name:var(--font-crimson)] text-[27px] text-ink-mid leading-[34px]">
               <span
                 aria-hidden="true"
-                className="float-left font-[family-name:var(--font-crimson)] font-semibold text-[105px] leading-none tracking-[-0.02em] text-ink mr-1"
+                className="float-left font-[family-name:var(--font-crimson)] font-semibold text-[105px] leading-[0.6] tracking-[-0.02em] text-ink mr-1"
               >
                 C
               </span>
