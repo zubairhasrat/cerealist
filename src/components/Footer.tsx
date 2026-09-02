@@ -19,15 +19,11 @@ export default function Footer() {
     <footer className="w-full mt-auto md:px-10">
       {/* ── Promo strip: headline + cereal box ─────────────────── */}
       <div>
-        <ContentContainer className="md:px-[30px]">
+        <ContentContainer className="xl:px-[30px]">
           <div className="relative flex items-end pt-4 md:pt-6 pb-0">
             {/* Headline */}
-            <h2 className="hidden md:block font-[family-name:var(--font-crimson)] font-bold text-[26px] md:text-[78px] leading-[1.1] text-ink max-w-[60%] pb-4">
-              The Morning Paper,<br />Now on Cereal!
-            </h2>
-
-            <h2 className="md:hidden font-[family-name:var(--font-crimson)] font-bold text-[26px] md:text-[78px] leading-[1.1] text-ink max-w-[65%] pb-4">
-              The Morning Paper, Now on Cereal!
+            <h2 className="font-[family-name:var(--font-crimson)] font-bold text-[26px] md:text-[40px] lg:text-[55px] xl:text-[78px] leading-[1.1] text-ink max-w-[65%] md:max-w-[60%] pb-4">
+              The Morning Paper,<br className="hidden md:block" /> Now on Cereal!
             </h2>
 
             {/* Cereal box — top-right, overflows into nav bar slightly */}
@@ -61,7 +57,7 @@ export default function Footer() {
               )}
               <Link
                 href={item.href}
-                className="font-[family-name:var(--font-crimson)] font-bold text-[18px] md:text-[27px] leading-none text-cream-light hover:opacity-75 whitespace-nowrap"
+                className="font-[family-name:var(--font-crimson)] font-bold text-[18px] md:text-[20px] lg:text-[27px] leading-none text-cream-light hover:opacity-75 whitespace-nowrap"
               >
                 {item.label}
               </Link>
@@ -79,7 +75,7 @@ export default function Footer() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="font-[family-name:var(--font-crimson)] font-semibold text-[11px] md:text-[17px] uppercase tracking-widest text-ink hover:opacity-75 whitespace-nowrap"
+                className="font-[family-name:var(--font-crimson)] font-semibold text-[11px] md:text-[13px] lg:text-[17px] uppercase tracking-widest text-ink hover:opacity-75 whitespace-nowrap"
               >
                 {link.label}
               </Link>
@@ -87,10 +83,10 @@ export default function Footer() {
           </div>
 
           {/* Wordmark + tagline — centered, tagline lines match wordmark width */}
-          <div className="flex flex-col items-center mx-auto w-fit mt-6 md:mt-[90px]">
+          <div className="flex flex-col items-center mx-auto w-fit mt-6 md:mt-10 lg:mt-[90px]">
             {/* © + wordmark image — © vertically centered */}
             <div className="flex items-center">
-              <span className="font-[family-name:var(--font-crimson)] font-bold text-[40px] md:text-[70px] leading-none text-ink shrink-0">
+              <span className="font-[family-name:var(--font-crimson)] font-bold text-[40px] md:text-[50px] lg:text-[70px] leading-none text-ink shrink-0">
                 ©
               </span>
               <Image
@@ -98,14 +94,14 @@ export default function Footer() {
                 alt="The Cerealist"
                 width={900}
                 height={140}
-                className="h-auto w-full max-w-[240px] md:max-w-[580px] lg:max-w-[820px]"
+                className="h-auto w-full max-w-[240px] md:max-w-[380px] lg:max-w-[580px] xl:max-w-[820px]"
               />
             </div>
 
             {/* Tagline — constrained to same width as wordmark row above */}
             <div className="flex items-center gap-3 md:gap-6 w-full mt-2">
               <hr className="flex-1 border-ink border-[1.5px]" />
-              <span className="font-[family-name:var(--font-crimson)] font-semibold text-[18px] md:text-[28px] text-ink whitespace-nowrap">
+              <span className="font-[family-name:var(--font-crimson)] font-semibold text-[18px] md:text-[20px] lg:text-[28px] text-ink whitespace-nowrap">
                 Cereal, Grown Up.
               </span>
               <hr className="flex-1 border-ink border-[1.5px]" />

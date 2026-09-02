@@ -23,12 +23,12 @@ export default function SocialFollowSection() {
               alt={platform}
               width={110}
               height={99}
-              className="w-[75px] h-auto md:w-[110px]"
+              className="w-[75px] h-auto md:w-[85px] lg:w-[110px]"
             />
           </a>
         ))}
       </div>
-      <p className="font-[family-name:var(--font-crimson)] text-[24px] md:text-[32px] text-center leading-[1.15]">
+      <p className="font-[family-name:var(--font-crimson)] text-[24px] md:text-[26px] lg:text-[32px] text-center leading-[1.15]">
         Follow, Post, &amp; Tag
         <br />
         @TheCerealist
