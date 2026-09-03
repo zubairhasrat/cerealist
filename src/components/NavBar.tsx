@@ -2,6 +2,7 @@ import Link from "next/link";
 import ContentContainer from "./ui/ContentContainer";
 import DoubleRule from "./DoubleRule";
 import RuleLine from "./RuleLine";
+import SubscribeButton from "./SubscribeButton";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -37,14 +38,12 @@ export default function NavBar() {
             ))}
           </div>
 
-          {/* Right: SUBSCRIBE button */}
-          <Link
-            href="/subscription"
-            className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[18px] lg:text-[24px] 2xl:text-[34px] leading-none h-[30px] lg:h-[34px] 2xl:h-[39px] px-[14px] lg:px-[20px] 2xl:px-[28px] flex items-center rounded-[5px] border border-ink shadow-[1px_3px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-px hover:translate-y-px transition-all whitespace-nowrap shrink-0 overflow-hidden"
+          {/* Right: SUBSCRIBE button — opens modal on desktop */}
+          <SubscribeButton
+            size="desktop"
+            className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[18px] lg:text-[24px] 2xl:text-[34px] leading-none h-[30px] lg:h-[34px] 2xl:h-[39px] px-[14px] lg:px-[20px] 2xl:px-[28px] flex items-center rounded-[5px] border border-ink shadow-[1px_3px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-px hover:translate-y-px transition-all whitespace-nowrap shrink-0 overflow-hidden cursor-pointer"
             style={{ backgroundImage: "url('/images/button-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
-          >
-            SUBSCRIBE FOR $19/ MONTH
-          </Link>
+          />
         </ContentContainer>
       </div>
 
@@ -56,14 +55,12 @@ export default function NavBar() {
             Wednesday, March 25, 2026
           </span>
 
-          {/* Right: SUBSCRIBE button */}
-          <Link
-            href="/subscription"
+          {/* Right: SUBSCRIBE button — navigates to /subscription on mobile */}
+          <SubscribeButton
+            size="mobile"
             className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[10px] xs:text-[11px] sm:text-[13px] leading-none h-[24px] xs:h-[26px] sm:h-[28px] px-[6px] xs:px-[8px] sm:px-[12px] flex items-center rounded-[4px] border border-ink shadow-[1px_2px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-px hover:translate-y-px transition-all whitespace-nowrap shrink-0 overflow-hidden"
             style={{ backgroundImage: "url('/images/button-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
-          >
-            SUBSCRIBE FOR $19/ MONTH
-          </Link>
+          />
         </ContentContainer>
       </div>
 

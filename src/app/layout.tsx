@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Crimson_Text, Inter } from "next/font/google";
+import Providers from "@/components/Providers";
 import "./globals.css";
 
 const crimsonText = Crimson_Text({
@@ -39,7 +40,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className="min-h-full flex flex-col font-[family-name:var(--font-crimson)] px-3 md:px-6"
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
