@@ -1,17 +1,22 @@
-import PageWrapper from "@/components/PageWrapper";
-import SectionHeader from "@/components/SectionHeader";
-import ContactForm from "@/components/contact/ContactForm";
-import ContactSidebar from "@/components/contact/ContactSidebar";
+import PageWrapper from '@/components/PageWrapper';
+import RuleLine from '@/components/RuleLine';
+import ContactForm from '@/components/contact/ContactForm';
 
 export default function ContactPage() {
   return (
-    <PageWrapper className="py-8">
-      <SectionHeader label="Write to the Desk" />
+    <PageWrapper>
+      <div className="w-full px-3 md:px-8 pt-8 md:pb-28">
+        {/* Heading — centered mobile, left desktop */}
+        <h1 className="font-crimson font-semibold text-[41px] md:text-[56px] lg:text-[60px] leading-none tracking-[-0.826px] md:tracking-normal text-ink mb-2 text-center md:text-left">
+          Write to the desk.
+        </h1>
+        <p className="font-crimson text-[20px] md:text-[26px] text-ink-mid mb-6 text-center md:text-left">
+          Questions, thoughts, submissions, or complaints worth printing.
+        </p>
 
-      <div className="grid grid-cols-[1fr_1px_360px] gap-0 pt-8">
+        <RuleLine className="mb-8" />
+
         <ContactForm />
-        <div className="bg-ink" />
-        <ContactSidebar />
       </div>
     </PageWrapper>
   );
