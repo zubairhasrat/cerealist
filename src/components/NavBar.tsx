@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ContentContainer from "./ui/ContentContainer";
 import RuleLine from "./RuleLine";
@@ -10,60 +13,86 @@ const NAV_LINKS = [
 ];
 
 export default function NavBar() {
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const [isStuck, setIsStuck] = useState(false);
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsStuck(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <nav className="w-full sticky top-0 z-50 bg-paper">
-      {/* ── Desktop ─────────────────────────────────────────────── */}
-      <div className="hidden md:block">
-        <ContentContainer className="flex items-center justify-between py-[6px] gap-2">
-          {/* Left: date */}
-          <span className="font-[family-name:var(--font-crimson)] font-semibold italic text-[16px] lg:text-[20px] 2xl:text-[26px] leading-none text-ink shrink-0">
-            Wednesday, March 25, 2026
-          </span>
+    <>
+      {/* Sentinel: when this leaves viewport, nav is stuck */}
+      <div ref={sentinelRef} className="h-px" aria-hidden />
 
-          {/* Center: nav links with vertical dividers */}
-          <div className="flex items-center">
-            {NAV_LINKS.map((item, i) => (
-              <span key={item.label} className="flex items-center">
-                {i > 0 && (
-                  <span className="mx-[16px] lg:mx-[28px] 2xl:mx-[43px] w-px h-[20.5px] bg-ink shrink-0 block" />
-                )}
-                <Link
-                  href={item.href}
-                  className="font-[family-name:var(--font-crimson)] text-[18px] lg:text-[23px] 2xl:text-[29px] leading-none text-ink hover:opacity-75 whitespace-nowrap"
-                >
-                  {item.label}
-                </Link>
-              </span>
-            ))}
-          </div>
+      <nav
+        className={`sticky top-0 z-50 ${isStuck ? "-mx-3 md:-mx-6" : ""}`}
+        style={
+          isStuck
+            ? {
+                backgroundImage: "url('/images/paper-texture.png')",
+                backgroundSize: "100% auto",
+                backgroundRepeat: "repeat-y",
+                backgroundColor: "var(--color-paper)",
+              }
+            : undefined
+        }
+      >
+        {/* ── Desktop ─────────────────────────────────────────────── */}
+        <div className={`hidden md:block ${isStuck ? "px-3 md:px-6" : ""}`}>
+          <ContentContainer className="flex items-center justify-between py-[6px] gap-2">
+            <span className="font-[family-name:var(--font-crimson)] font-semibold italic text-[16px] lg:text-[20px] 2xl:text-[26px] leading-none text-ink shrink-0">
+              Wednesday, March 25, 2026
+            </span>
 
-          {/* Right: SUBSCRIBE button */}
-          <SubscribeButton
-            size="desktop"
-            className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[18px] lg:text-[24px] 2xl:text-[34px] leading-none h-[30px] lg:h-[34px] 2xl:h-[39px] px-[14px] lg:px-[20px] 2xl:px-[28px] flex items-center rounded-[5px] border border-ink shadow-[1px_3px_0px_0px_#000] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all whitespace-nowrap shrink-0 overflow-hidden cursor-pointer"
-            style={{ backgroundImage: "url('/images/button-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
-          />
-        </ContentContainer>
-      </div>
+            <div className="flex items-center">
+              {NAV_LINKS.map((item, i) => (
+                <span key={item.label} className="flex items-center">
+                  {i > 0 && (
+                    <span className="mx-[16px] lg:mx-[28px] 2xl:mx-[43px] w-px h-[20.5px] bg-ink shrink-0 block" />
+                  )}
+                  <Link
+                    href={item.href}
+                    className="font-[family-name:var(--font-crimson)] text-[18px] lg:text-[23px] 2xl:text-[29px] leading-none text-ink hover:opacity-75 whitespace-nowrap"
+                  >
+                    {item.label}
+                  </Link>
+                </span>
+              ))}
+            </div>
 
-      {/* ── Mobile ──────────────────────────────────────────────── */}
-      <div className="flex md:hidden">
-        <ContentContainer className="flex items-center justify-between py-1 md:py-2">
-          {/* Left: date */}
-          <span className="font-[family-name:var(--font-crimson)] font-semibold italic text-[11px] xs:text-[13px] sm:text-[14px] leading-none text-ink shrink-0">
-            Wednesday, March 25, 2026
-          </span>
+            <SubscribeButton
+              size="desktop"
+              className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[18px] lg:text-[24px] 2xl:text-[34px] leading-none h-[30px] lg:h-[34px] 2xl:h-[39px] px-[14px] lg:px-[20px] 2xl:px-[28px] flex items-center rounded-[5px] border border-ink shadow-[1px_3px_0px_0px_#000] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all whitespace-nowrap shrink-0 overflow-hidden cursor-pointer"
+              style={{ backgroundImage: "url('/images/button-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
+            />
+          </ContentContainer>
+        </div>
 
-          {/* Right: SUBSCRIBE button */}
-          <SubscribeButton
-            size="mobile"
-            className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[10px] xs:text-[11px] sm:text-[13px] leading-none h-[24px] xs:h-[26px] sm:h-[28px] px-[6px] xs:px-[8px] sm:px-[12px] flex items-center rounded-[4px] border border-ink shadow-[1px_2px_0px_0px_#000] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all whitespace-nowrap shrink-0 overflow-hidden"
-            style={{ backgroundImage: "url('/images/button-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
-          />
-        </ContentContainer>
-      </div>
+        {/* ── Mobile ──────────────────────────────────────────────── */}
+        <div className={`flex md:hidden ${isStuck ? "px-3" : ""}`}>
+          <ContentContainer className="flex items-center justify-between py-1">
+            <span className="font-[family-name:var(--font-crimson)] font-semibold italic text-[11px] xs:text-[13px] sm:text-[14px] leading-none text-ink shrink-0">
+              Wednesday, March 25, 2026
+            </span>
 
-      <RuleLine strokeWidth={1.97435} color="var(--color-ink)" height={Math.ceil(1.97435)} />
-    </nav>
+            <SubscribeButton
+              size="mobile"
+              className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[10px] xs:text-[11px] sm:text-[13px] leading-none h-[24px] xs:h-[26px] sm:h-[28px] px-[6px] xs:px-[8px] sm:px-[12px] flex items-center rounded-[4px] border border-ink shadow-[1px_2px_0px_0px_#000] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all whitespace-nowrap shrink-0 overflow-hidden"
+              style={{ backgroundImage: "url('/images/button-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
+            />
+          </ContentContainer>
+        </div>
+
+        <RuleLine strokeWidth={1.97435} color="var(--color-ink)" height={Math.ceil(1.97435)} />
+      </nav>
+    </>
   );
 }
