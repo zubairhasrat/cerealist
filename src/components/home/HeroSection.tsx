@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ContentContainer from "@/components/ui/ContentContainer";
 import CTAButton from "@/components/CTAButton";
+import PreviewIssueButton from "@/components/home/PreviewIssueButton";
 
 export default function HeroSection() {
   return (
@@ -77,14 +78,7 @@ export default function HeroSection() {
               >
                 Get this Month&apos;s Issue
               </CTAButton>
-              <CTAButton
-                href="/subscription"
-                variant="hero-light"
-                size="full"
-                className="text-[22px] md:text-[22px] lg:text-[30px] xl:text-[39px] px-8 py-3 text-center"
-              >
-                Preview Last Month&apos;s Issue
-              </CTAButton>
+              <PreviewIssueButton className="md:text-[22px] lg:text-[30px] xl:text-[39px] px-8 py-3" />
             </div>
           </div>
 
