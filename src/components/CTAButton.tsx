@@ -26,9 +26,9 @@ export default function CTAButton({
     secondary:
       "bg-gradient-to-b from-cream-fill to-cream-fill-dark text-ink border-cream-border hover:from-cream-fill-hover hover:to-cream-fill-dark-hover",
     "hero-dark":
-      "text-cream-light border-ink rounded-[10px] shadow-[1px_3px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-px hover:translate-y-px overflow-hidden",
+      "text-cream-light border-ink rounded-[10px] shadow-[1px_3px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-px hover:translate-y-px active:shadow-none active:translate-x-[2px] active:translate-y-[2px] overflow-hidden",
     "hero-light":
-      "text-ink border-ink rounded-[10px] shadow-[1px_3px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-px hover:translate-y-px overflow-hidden",
+      "text-ink border-ink rounded-[10px] shadow-[1px_3px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-px hover:translate-y-px active:shadow-none active:translate-x-[2px] active:translate-y-[2px] overflow-hidden",
   };
 
   const bgStyles: Record<string, React.CSSProperties> = {

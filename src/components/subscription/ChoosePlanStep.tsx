@@ -55,7 +55,7 @@ export default function ChoosePlanStep({ onSelectPlan }: ChoosePlanStepProps) {
 
             {/* Subscribe monthly button */}
             <button
-              className="relative h-[44px] phone:h-[50px] lg:h-[56px] w-[80%] lg:w-[85%] overflow-hidden text-center mb-4 rounded-[6px] border-[1.799px] border-border-outline shadow-[0px_4.198px_2.399px_0px_black,0px_4.797px_7.196px_0px_rgba(0,0,0,0.25)]"
+              className="relative h-[44px] phone:h-[50px] lg:h-[56px] w-[80%] lg:w-[85%] overflow-hidden text-center mb-4 rounded-[6px] border-[1.799px] border-border-outline shadow-[0px_4.198px_2.399px_0px_black,0px_4.797px_7.196px_0px_rgba(0,0,0,0.25)] hover:shadow-[0px_2px_1px_0px_black] hover:translate-y-[2px] active:shadow-none active:translate-y-[4px] transition-all"
               onClick={(e) => { e.stopPropagation(); onSelectPlan("monthly"); }}
             >
               <div className="absolute inset-0 bg-navy-mid rounded-[4.414px]" />
@@ -104,7 +104,7 @@ export default function ChoosePlanStep({ onSelectPlan }: ChoosePlanStepProps) {
 
             {/* Get This Month's Issue button */}
             <button
-              className="relative w-[80%] lg:w-[85%] h-[44px] phone:h-[50px] lg:h-[56px] overflow-hidden text-center mb-3 rounded-[6px] border-[1.798px] border-border-dark shadow-[0px_4.198px_2.399px_0px_black,0px_4.797px_7.196px_0px_rgba(0,0,0,0.25)]"
+              className="relative w-[80%] lg:w-[85%] h-[44px] phone:h-[50px] lg:h-[56px] overflow-hidden text-center mb-3 rounded-[6px] border-[1.798px] border-border-dark shadow-[0px_4.198px_2.399px_0px_black,0px_4.797px_7.196px_0px_rgba(0,0,0,0.25)] hover:shadow-[0px_2px_1px_0px_black] hover:translate-y-[2px] active:shadow-none active:translate-y-[4px] transition-all"
               onClick={(e) => { e.stopPropagation(); onSelectPlan("single"); }}
             >
               <div className="absolute inset-0 bg-gradient-to-b from-[#EFE3D3] to-[#E0D7CC] rounded-[4.411px] border-[1.448px] border-cream-border" />

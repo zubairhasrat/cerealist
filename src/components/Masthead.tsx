@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import ContentContainer from "./ui/ContentContainer";
 import DoubleRule from "./DoubleRule";
 
@@ -33,14 +34,16 @@ export default function Masthead() {
 
           {/* Wordmark */}
           <h1 className="flex justify-center px-4">
-            <Image
-              src="/images/the-cerealist-text.png"
-              alt="The Cerealist"
-              width={587}
-              height={115}
-              priority
-              className="h-[58px] md:h-[115px] w-auto max-w-full object-contain"
-            />
+            <Link href="/" aria-label="The Cerealist — Home">
+              <Image
+                src="/images/the-cerealist-text.png"
+                alt="The Cerealist"
+                width={587}
+                height={115}
+                priority
+                className="h-[58px] md:h-[115px] w-auto max-w-full object-contain"
+              />
+            </Link>
           </h1>
 
           {/* MONTHLY EDITION */}

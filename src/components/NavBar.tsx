@@ -1,6 +1,8 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ContentContainer from "./ui/ContentContainer";
-import DoubleRule from "./DoubleRule";
 import RuleLine from "./RuleLine";
 import SubscribeButton from "./SubscribeButton";
 
@@ -11,8 +13,40 @@ const NAV_LINKS = [
 ];
 
 export default function NavBar() {
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
+  const navRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const current = window.scrollY;
+      const navHeight = navRef.current?.offsetHeight ?? 60;
+
+      if (current < navHeight) {
+        // Near top — always show
+        setVisible(true);
+      } else if (current < lastScrollY.current) {
+        // Scrolling up — show
+        setVisible(true);
+      } else if (current > lastScrollY.current + 4) {
+        // Scrolling down — hide
+        setVisible(false);
+      }
+
+      lastScrollY.current = current;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <nav className="w-full">
+    <nav
+      ref={navRef}
+      className={`w-full sticky top-0 z-50 bg-paper transition-transform duration-300 ease-in-out ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       {/* ── Desktop ─────────────────────────────────────────────── */}
       <div className="hidden md:block">
         <ContentContainer className="flex items-center justify-between py-[6px] gap-2">
@@ -38,10 +72,10 @@ export default function NavBar() {
             ))}
           </div>
 
-          {/* Right: SUBSCRIBE button — opens modal on desktop */}
+          {/* Right: SUBSCRIBE button */}
           <SubscribeButton
             size="desktop"
-            className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[18px] lg:text-[24px] 2xl:text-[34px] leading-none h-[30px] lg:h-[34px] 2xl:h-[39px] px-[14px] lg:px-[20px] 2xl:px-[28px] flex items-center rounded-[5px] border border-ink shadow-[1px_3px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-px hover:translate-y-px transition-all whitespace-nowrap shrink-0 overflow-hidden cursor-pointer"
+            className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[18px] lg:text-[24px] 2xl:text-[34px] leading-none h-[30px] lg:h-[34px] 2xl:h-[39px] px-[14px] lg:px-[20px] 2xl:px-[28px] flex items-center rounded-[5px] border border-ink shadow-[1px_3px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-px hover:translate-y-px active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all whitespace-nowrap shrink-0 overflow-hidden cursor-pointer"
             style={{ backgroundImage: "url('/images/button-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
           />
         </ContentContainer>
@@ -55,17 +89,16 @@ export default function NavBar() {
             Wednesday, March 25, 2026
           </span>
 
-          {/* Right: SUBSCRIBE button — navigates to /subscription on mobile */}
+          {/* Right: SUBSCRIBE button */}
           <SubscribeButton
             size="mobile"
-            className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[10px] xs:text-[11px] sm:text-[13px] leading-none h-[24px] xs:h-[26px] sm:h-[28px] px-[6px] xs:px-[8px] sm:px-[12px] flex items-center rounded-[4px] border border-ink shadow-[1px_2px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-px hover:translate-y-px transition-all whitespace-nowrap shrink-0 overflow-hidden"
+            className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[10px] xs:text-[11px] sm:text-[13px] leading-none h-[24px] xs:h-[26px] sm:h-[28px] px-[6px] xs:px-[8px] sm:px-[12px] flex items-center rounded-[4px] border border-ink shadow-[1px_2px_0px_0px_#000] hover:shadow-[1px_1px_0px_0px_#000] hover:translate-x-px hover:translate-y-px active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all whitespace-nowrap shrink-0 overflow-hidden"
             style={{ backgroundImage: "url('/images/button-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
           />
         </ContentContainer>
       </div>
 
-      {/* <DoubleRule thickWidth={2.96153} thinWidth={1.97435} /> */}
-      <RuleLine strokeWidth={1.97435} color="var(--color-ink)" height={Math.ceil(1.97435)}  />
+      <RuleLine strokeWidth={1.97435} color="var(--color-ink)" height={Math.ceil(1.97435)} />
     </nav>
   );
 }

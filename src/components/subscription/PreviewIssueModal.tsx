@@ -123,7 +123,7 @@ export default function PreviewIssueModal() {
           {/* CTA — Get this Month's Issue */}
           <button
             onClick={handleCTA}
-            className="relative mt-4 w-full h-[50px] overflow-hidden rounded-[8px] border-[2.3px] border-[#606060] shadow-[0px_5px_3px_0px_black,0px_6px_9px_0px_rgba(0,0,0,0.25)] hover:shadow-[0px_3px_2px_0px_black,0px_4px_6px_0px_rgba(0,0,0,0.25)] hover:translate-y-px transition-all"
+            className="relative mt-4 w-full h-[50px] overflow-hidden rounded-[8px] border-[2.3px] border-[#606060] shadow-[0px_5px_3px_0px_black,0px_6px_9px_0px_rgba(0,0,0,0.25)] hover:shadow-[0px_3px_2px_0px_black,0px_4px_6px_0px_rgba(0,0,0,0.25)] hover:translate-y-[2px] active:shadow-none active:translate-y-[4px] transition-all"
           >
             <div className="absolute inset-0 bg-[#365274] rounded-[5px]" />
             <div className="absolute inset-0 pointer-events-none opacity-30 bg-[url('/images/button-bg.png')] bg-cover bg-center" />

@@ -240,7 +240,7 @@ export default function PickCerealStep({ plan, onCheckout }: PickCerealStepProps
 
       {/* Checkout button */}
       <button
-        className="relative w-full lg:w-[500px] lg:mx-auto lg:block h-[50px] lg:h-[64px] overflow-hidden rounded-[7.53px] border-[2.259px] border-border-outline shadow-[0px_5.271px_3.012px_0px_black,0px_6.024px_9.036px_0px_rgba(0,0,0,0.25)]"
+        className="relative w-full lg:w-[500px] lg:mx-auto lg:block h-[50px] lg:h-[64px] overflow-hidden rounded-[7.53px] border-[2.259px] border-border-outline shadow-[0px_5.271px_3.012px_0px_black,0px_6.024px_9.036px_0px_rgba(0,0,0,0.25)] hover:shadow-[0px_2px_1px_0px_black] hover:translate-y-[2px] active:shadow-none active:translate-y-[4px] transition-all"
         onClick={onCheckout}
       >
         <div className="absolute inset-0 bg-navy-mid rounded-[5.543px]" />
