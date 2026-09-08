@@ -139,7 +139,7 @@ export default function ContactForm() {
       <div className="flex justify-center pb-5">
         <button
           type="submit"
-          className="font-crimson font-semibold text-[29.75px] md:text-[38px] px-10 py-2 w-full max-w-[400px] text-ink cursor-pointer hover:[box-shadow:1px_1px_0px_0px_#000] hover:translate-x-px hover:translate-y-px active:[box-shadow:none] active:translate-x-[2px] active:translate-y-[2px] transition-all"
+          className="font-crimson font-semibold text-[29.75px] md:text-[38px] px-10 py-2 w-full max-w-[400px] text-ink cursor-pointer active:[box-shadow:none] active:translate-x-[2px] active:translate-y-[2px] transition-all"
           style={{
             border: '2.304px solid #564c49',
             borderRadius: '7.679px',
