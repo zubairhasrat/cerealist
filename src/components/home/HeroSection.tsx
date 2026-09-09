@@ -56,29 +56,30 @@ export default function HeroSection() {
 
             <div className="clear-both" />
 
-            {/* Price lockup */}
-            <hr className="border-ink mt-4 md:mt-6 mb-3" />
-            <div className="flex items-baseline justify-center gap-2">
-              <span className="font-[family-name:var(--font-crimson)] font-bold text-[28px] md:text-[28px] lg:text-[34px] xl:text-[40px] text-ink">
-                $19.99
-              </span>
-              <span className="font-[family-name:var(--font-crimson)] italic text-[20px] md:text-[20px] lg:text-[26px] xl:text-[31px] text-ink-warm">
-                per monthly edition
-              </span>
-            </div>
-            <hr className="border-ink mt-3 mb-4 md:mb-6" />
+            {/* Price lockup + CTAs — hidden on mobile (StickyCTABar handles it) */}
+            <div className="hidden md:block">
+              <hr className="border-ink mt-6 mb-3" />
+              <div className="flex items-baseline justify-center gap-2">
+                <span className="font-[family-name:var(--font-crimson)] font-bold text-[28px] lg:text-[34px] xl:text-[40px] text-ink">
+                  $19.99
+                </span>
+                <span className="font-[family-name:var(--font-crimson)] italic text-[20px] lg:text-[26px] xl:text-[31px] text-ink-warm">
+                  per monthly edition
+                </span>
+              </div>
+              <hr className="border-ink mt-3 mb-6" />
 
-            {/* CTA buttons */}
-            <div className="flex flex-col gap-3">
-              <CTAButton
-                href="/subscription"
-                variant="hero-dark"
-                size="full"
-                className="text-[22px] md:text-[22px] lg:text-[30px] xl:text-[39px] px-8 py-3 text-center"
-              >
-                Get this Month&apos;s Issue
-              </CTAButton>
-              <PreviewIssueButton className="md:text-[22px] lg:text-[30px] xl:text-[39px] px-8 py-3" />
+              <div className="flex flex-col gap-3">
+                <CTAButton
+                  href="/subscription"
+                  variant="hero-dark"
+                  size="full"
+                  className="text-[22px] lg:text-[30px] xl:text-[39px] px-8 py-3 text-center"
+                >
+                  Get this Month&apos;s Issue
+                </CTAButton>
+                <PreviewIssueButton className="text-[22px] lg:text-[30px] xl:text-[39px] px-8 py-3" />
+              </div>
             </div>
           </div>
 
