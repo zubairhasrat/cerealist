@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import ContentContainer from "./ui/ContentContainer";
 import RuleLine from "./RuleLine";
 import SubscribeButton from "./SubscribeButton";
+import { useSubscriptionModal } from "@/contexts/SubscriptionModalContext";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -15,6 +17,8 @@ const NAV_LINKS = [
 export default function NavBar() {
   const sentinelRef = useRef<HTMLDivElement>(null);
   const [isStuck, setIsStuck] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { open } = useSubscriptionModal();
 
   useEffect(() => {
     const sentinel = sentinelRef.current;
@@ -77,18 +81,60 @@ export default function NavBar() {
         </div>
 
         {/* ── Mobile ──────────────────────────────────────────────── */}
-        <div className={`flex md:hidden ${isStuck ? "px-3" : ""}`}>
-          <ContentContainer className="flex items-center justify-between py-1">
-            <span className="font-[family-name:var(--font-crimson)] font-semibold italic text-[14px] phone:text-[16px] sm:text-[18px] leading-none text-ink shrink-0">
-              Wednesday, March 25, 2026
-            </span>
+        <div className={`flex md:hidden flex-col ${isStuck ? "px-3" : ""}`}>
+          {/* Collapsed row: logo + hamburger/close */}
+          <ContentContainer className="flex items-center justify-between py-[6px]">
+            <Link href="/" aria-label="The Cerealist — Home">
+              <Image
+                src="/images/the-cerealist-text.png"
+                alt="The Cerealist"
+                width={293}
+                height={57}
+                className="h-[34px] phone:h-[38px] w-auto"
+              />
+            </Link>
 
-            <SubscribeButton
-              size="mobile"
-              className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[14px] phone:text-[16px] sm:text-[16px] leading-none h-[24px] xs:h-[26px] sm:h-[28px] px-[6px] xs:px-[8px] sm:px-[12px] flex items-center rounded-[4px] border border-ink shadow-[1px_2px_0px_0px_#000] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all whitespace-nowrap shrink-0 overflow-hidden"
-              style={{ backgroundImage: "url('/images/button-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
-            />
+            <button
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              className="text-ink p-1"
+            >
+              {menuOpen ? (
+                /* ✕ close icon */
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                  <line x1="2" y1="2" x2="20" y2="20" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+                  <line x1="20" y1="2" x2="2" y2="20" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+                </svg>
+              ) : (
+                /* ≡ hamburger icon */
+                <svg width="24" height="18" viewBox="0 0 24 18" fill="none" aria-hidden="true">
+                  <line x1="0" y1="1" x2="24" y2="1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="0" y1="9" x2="24" y2="9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="0" y1="17" x2="24" y2="17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              )}
+            </button>
           </ContentContainer>
+
+          {/* Expanded menu */}
+          {menuOpen && (
+            <ContentContainer className="pb-3 flex flex-col gap-3">
+              <Link
+                href="/contact"
+                onClick={() => setMenuOpen(false)}
+                className="font-[family-name:var(--font-crimson)] text-[18px] leading-none text-ink"
+              >
+                Contact the Desk
+              </Link>
+              <button
+                onClick={() => { setMenuOpen(false); open(); }}
+                className="relative w-full text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[18px] leading-none h-[44px] flex items-center justify-center rounded-[5px] border border-ink shadow-[1px_3px_0px_0px_#000] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all overflow-hidden cursor-pointer"
+                style={{ backgroundImage: "url('/images/button-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
+              >
+                Get this Month&apos;s Issue
+              </button>
+            </ContentContainer>
+          )}
         </div>
 
         <RuleLine strokeWidth={1.97435} color="var(--color-ink)" height={Math.ceil(1.97435)} />
