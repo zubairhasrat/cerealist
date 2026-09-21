@@ -22,7 +22,7 @@ function ArticleCard({
   return (
     <div
       className={[
-        "lg:px-6 lg:py-0",
+        "lg:px-3 lg:py-0",
         mobileOrderClass,
         mobileBorderClass,
         mobilePadClass,
@@ -30,13 +30,13 @@ function ArticleCard({
         .filter(Boolean)
         .join(" ")}
     >
-      <p className="font-[family-name:var(--font-crimson)] font-bold text-[13px] lg:text-[17px] xl:text-[20px] uppercase text-navy">
+      <p className="font-[family-name:var(--font-crimson)] font-bold text-[12px] phone:text-[14px] lg:text-[17px] xl:text-[20px] uppercase text-navy">
         {category}
       </p>
-      <h3 className="font-[family-name:var(--font-crimson)] font-bold text-[22px] lg:text-[28px] xl:text-[35px] leading-[1.15] xl:leading-[33px] text-ink mt-1">
+      <h3 className="font-[family-name:var(--font-crimson)] font-bold text-[22px] lg:text-[24px] xl:text-[35px] leading-[17.41px] xl:leading-8 text-ink mt">
         {headline}
       </h3>
-      <p className="font-[family-name:var(--font-crimson)] text-[16px] lg:text-[20px] xl:text-[27px] leading-[1.3] xl:leading-[29px] text-ink mt-2">
+      <p className="font-[family-name:var(--font-crimson)] text-[16px] lg:text-[20px] xl:text-[27px] leading-3.75 xl:leading-7.25 text-ink mt-1.5 mb-2">
         {description}
       </p>
     </div>
@@ -89,11 +89,11 @@ const ARTICLES: ArticleCardProps[] = [
 
 export default function EditionSection() {
   return (
-    <section className="bg-transparent mt-8">
+    <section className="bg-transparent mt-3 md:mt-8">
       <ContentContainer>
 
         <DoubleRule />
-        <p className="font-[family-name:var(--font-crimson)] font-semibold text-[20px] lg:text-[28px] uppercase text-ink text-center py-3">
+        <p className="font-[family-name:var(--font-crimson)] font-semibold text-[20px] md:text-[28px] uppercase text-ink text-center py md:py-3">
           INSIDE THIS MONTH&apos;S EDITION
         </p>
         <DoubleRule inverse />

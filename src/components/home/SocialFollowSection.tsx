@@ -9,7 +9,7 @@ const socialLinks = [
 
 export default function SocialFollowSection() {
   return (
-    <section className="py-12 flex flex-col items-center gap-6">
+    <section className="py-5 md:py-8 lg:py-12 flex flex-col items-center gap-6">
       <div className="flex items-center gap-[6px] md:gap-[9.5px]">
         {socialLinks.map(({ platform, icon }) => (
           <a

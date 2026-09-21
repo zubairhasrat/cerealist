@@ -48,7 +48,7 @@ export default function NavBar() {
         {/* ── Desktop ─────────────────────────────────────────────── */}
         <div className={`hidden md:block ${isStuck ? "px-3 md:px-6" : ""}`}>
           <ContentContainer className="flex items-center justify-between py-[6px] gap-2">
-            <span className="font-[family-name:var(--font-crimson)] font-semibold italic text-[16px] lg:text-[20px] 2xl:text-[26px] leading-none text-ink shrink-0">
+            <span className="font-[family-name:var(--font-crimson)] font-semibold italic text-[16px] phone:text-[18px] lg:text-[20px] 2xl:text-[26px] leading-none text-ink shrink-0">
               Wednesday, March 25, 2026
             </span>
 
@@ -79,13 +79,13 @@ export default function NavBar() {
         {/* ── Mobile ──────────────────────────────────────────────── */}
         <div className={`flex md:hidden ${isStuck ? "px-3" : ""}`}>
           <ContentContainer className="flex items-center justify-between py-1">
-            <span className="font-[family-name:var(--font-crimson)] font-semibold italic text-[11px] xs:text-[13px] sm:text-[14px] leading-none text-ink shrink-0">
+            <span className="font-[family-name:var(--font-crimson)] font-semibold italic text-[14px] phone:text-[16px] sm:text-[18px] leading-none text-ink shrink-0">
               Wednesday, March 25, 2026
             </span>
 
             <SubscribeButton
               size="mobile"
-              className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[10px] xs:text-[11px] sm:text-[13px] leading-none h-[24px] xs:h-[26px] sm:h-[28px] px-[6px] xs:px-[8px] sm:px-[12px] flex items-center rounded-[4px] border border-ink shadow-[1px_2px_0px_0px_#000] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all whitespace-nowrap shrink-0 overflow-hidden"
+              className="relative text-cream-light font-[family-name:var(--font-crimson)] font-semibold text-[14px] phone:text-[16px] sm:text-[16px] leading-none h-[24px] xs:h-[26px] sm:h-[28px] px-[6px] xs:px-[8px] sm:px-[12px] flex items-center rounded-[4px] border border-ink shadow-[1px_2px_0px_0px_#000] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all whitespace-nowrap shrink-0 overflow-hidden"
               style={{ backgroundImage: "url('/images/button-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
             />
           </ContentContainer>

@@ -47,7 +47,7 @@
   --breakpoint-3xs: 270px;   /* ultra-small screens */
   --breakpoint-2xs: 320px;   /* very small phones (iPhone SE 1st gen) */
   --breakpoint-xs: 370px;    /* small phones (iPhone SE 3rd gen, mini) */
-  --breakpoint-phone: 430px; /* large phones (iPhone Pro Max, Plus) */
+  --breakpoint-phone: 400px; /* large phones (iPhone Pro Max, Plus) */
 }
 
 @theme inline {
@@ -116,4 +116,18 @@ body {
 
 .rule-thin {
   border-top: 1px solid var(--color-ink);
+}
+
+/* ── Mobile hero drop cap ─────────────────────────────── */
+/* initial-letter is inline content so it respects shape-outside
+   of the sibling image float, unlike a float-left span which
+   stacks at the visual box edge and creates a gap. */
+.hero-body-mobile::first-letter {
+  -webkit-initial-letter: 2;
+  initial-letter: 2;
+  font-family: var(--font-crimson);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-right: 4px;
+  letter-spacing: -0.02em;
 }
