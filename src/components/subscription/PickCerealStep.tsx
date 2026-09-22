@@ -134,10 +134,10 @@ export default function PickCerealStep({ plan, onCheckout }: PickCerealStepProps
       <StepPills currentStep={2} />
 
       {/* Heading */}
-      <h1 className="text-[41.29px] lg:text-[52px] font-semibold text-ink text-center mb-1 leading-[100%] tracking-[-0.826px]">
+      <h1 className="text-[41.29px] phone:text-[44px] lg:text-[52px] font-semibold text-ink text-center mb-1 leading-[100%] tracking-[-0.826px]">
         Pick your cereal
       </h1>
-      <p className="text-[20px] lg:text-[24px] font-normal text-ink-mid text-center mb-4 leading-[127.413%]">
+      <p className="text-[20px] phone:text-[22px] lg:text-[24px] font-normal text-ink-mid text-center mb-4 leading-[127.413%]">
         Choose one
       </p>
 
@@ -149,9 +149,9 @@ export default function PickCerealStep({ plan, onCheckout }: PickCerealStepProps
         {/* Header row */}
         <div className="relative overflow-hidden border-b-[1.5px] border-black h-[49px] lg:h-[60px] flex items-center px-4 gap-[6px] rounded-t-[20.802px]">
           <div className="absolute inset-0 bg-[url('/images/btn-light-beige-bg.png')] bg-cover bg-center" />
-          <div className="relative z-10 shrink-0 w-[25px] phone:w-[30px] h-[20px] phone:h-[25px]">
+          {selectedCereal === "honey-rings" && <div className="relative z-10 shrink-0 w-[25px] phone:w-[30px] h-[20px] phone:h-[25px]">
             <Image src="/images/check-mark-with-square.png" alt="checked" fill className="object-contain" />
-          </div>
+          </div>}
           <p className="relative z-10 text-[24px] phone:text-[28px] lg:text-[30px] font-semibold text-ink leading-none">
             Editors Pick{" "}
             <span className="text-[18px] phone:text-[20px] lg:text-[22px] font-normal italic">(Most Popular)</span>
@@ -168,7 +168,7 @@ export default function PickCerealStep({ plan, onCheckout }: PickCerealStepProps
                 onClick={() => setSelectedCereal(cereal.id)}
                 className={`relative cursor-pointer rounded-[5.71px] overflow-hidden bg-[url('/images/paper-texture.png')] bg-cover bg-center flex flex-col items-center pt-[14px] pb-[12px] px-[8px] lg:pt-[20px] lg:pb-[16px] ${
                   isSelected
-                    ? "border-[1.467px] border-black drop-shadow-[0px_2.855px_2.855px_black]"
+                    ? "border-[1.467px] border-black shadow-[0_2.855px_5.71px_0_#000]"
                     : "border-[1.467px] border-black/60"
                 }`}
               >
@@ -190,7 +190,7 @@ export default function PickCerealStep({ plan, onCheckout }: PickCerealStepProps
                 </p>
 
                 {/* Description */}
-                <p className="text-[15px] phone:text-[16px] lg:text-[18px] font-normal text-[#2a2929] text-center leading-normal mb-[8px]">
+                <p className="text-[16px] phone:text-[18px] lg:text-[18px] font-normal text-[#2a2929] text-center leading-normal mb-[8px]">
                   {cereal.desc}
                 </p>
 
@@ -199,7 +199,10 @@ export default function PickCerealStep({ plan, onCheckout }: PickCerealStepProps
                   className="text-[17px] phone:text-[18px] lg:text-[20px] font-semibold text-[#2a2929] text-center whitespace-nowrap cursor-pointer hover:underline"
                   onClick={(e) => { e.stopPropagation(); setDetailCereal(cereal.id); }}
                 >
-                  View details →
+                  View details{" "}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="7" viewBox="0 0 18 7" fill="none" className="inline-block align-middle ml-1">
+                    <path d="M17.5658 3.16925L12.0765 -5.48363e-06V6.33851L17.5658 3.16925ZM0 3.16925V3.71818H12.6254V3.16925V2.62032H0V3.16925Z" fill="#2A2929"/>
+                  </svg>
                 </button>
               </div>
             );

@@ -14,21 +14,21 @@ export default function ChoosePlanStep({ onSelectPlan }: ChoosePlanStepProps) {
     <div className="mx-auto px-2">
       <StepPills currentStep={1} />
 
-      <h1 className="text-[41.29px] lg:text-[52px] font-semibold text-ink text-center mb-2 leading-[100%] tracking-[-0.826px]">
-        Choose your edition
+      <h1 className="text-[41.29px] lg:text-[52px] font-semibold text-ink text-center mb-1 leading-[100%] tracking-[-0.826px]">
+        Choose your pick
       </h1>
-      <p className="text-[20px] lg:text-[24px] font-normal text-ink-mid text-center mb-6 leading-[127.413%]">
-        How would you like to receive <strong>The Cerealist?</strong>
+      <p className="text-[20px] lg:text-[24px] font-normal text-ink-mid text-center mb-5 leading-[127.413%]">
+        How would you like to receive The Cerealist?
       </p>
 
       <div className="flex flex-col lg:flex-row gap-4 lg:gap-5 lg:items-stretch">
         {/* ── Monthly Edition Card ─────────────────────── */}
         <div
-          className="relative border-[1.5px] border-black rounded-[11.993px] overflow-hidden cursor-pointer shadow-[0px_3px_3px_black] lg:flex-1"
+          className="relative border-[1.5px] border-black rounded-[11.993px] overflow-hidden cursor-pointer shadow-[0px_2.9px_5.9px_0px_black] lg:flex-1"
           onClick={() => onSelectPlan("monthly")}
         >
           {/* Paper texture bg */}
-          <div className="absolute inset-0 pointer-events-none bg-[url('/images/paper-texture.png')] bg-cover bg-center rotate-1 skew-x-1 scale-105" />
+          <div className="absolute inset-0 pointer-events-none bg-[url('/images/card-bg.png')] bg-cover bg-center rotate-1 skew-x-1 scale-105" />
 
           {/* MOST POPULAR banner — desktop only */}
           <div className="hidden lg:flex absolute top-0 left-0 right-0 h-[58px] items-center justify-center z-20 overflow-hidden">
@@ -39,29 +39,28 @@ export default function ChoosePlanStep({ onSelectPlan }: ChoosePlanStepProps) {
             </span>
           </div>
 
-          <div className="relative z-10 px-5 py-5 lg:pt-[78px] lg:pb-7 text-center flex flex-col items-center">
-            <p className="text-[34px] phone:text-[38px] lg:text-[44px] font-semibold text-ink leading-none tracking-[-0.667px] mb-2">
+          <div className="relative z-10 px-5 py-10 lg:pt-[78px] lg:pb-7 text-center flex flex-col items-center">
+            <p className="text-[34px] phone:text-[38px] lg:text-[44px] font-semibold text-ink leading-none tracking-[-0.667px] mb md:mb-2">
               Monthly Edition
             </p>
 
-            <p className="text-[18px] phone:text-[20px] lg:text-[22px] font-normal text-ink-mid mb-3">
+            <p className="text-[18px] phone:text-[20px] lg:text-[22px] font-normal text-ink-mid mb md:mb-3">
               A new issue. A new cereal. Every month.
             </p>
 
-            <div className="flex items-baseline justify-center mb-4">
+            <div className="flex items-baseline justify-center mb-2 md:mb-4">
               <span className="text-[27.991px] phone:text-[32px] lg:text-[38px] font-bold text-ink">$19.99</span>
               <span className="text-[22.955px] phone:text-[26px] lg:text-[30px] font-normal text-ink-warm">/month</span>
             </div>
 
             {/* Subscribe monthly button */}
             <button
-              className="relative h-[44px] phone:h-[50px] lg:h-[56px] w-[80%] lg:w-[85%] overflow-hidden text-center mb-4 rounded-[6px] border-[1.799px] border-border-outline shadow-[0px_4.198px_2.399px_0px_black,0px_4.797px_7.196px_0px_rgba(0,0,0,0.25)] active:shadow-none active:translate-y-[4px] transition-all"
+              className="relative h-[44px] phone:h-[50px] lg:h-[56px] w-[80%] lg:w-[85%] overflow-hidden text-center mb-3 md:mb-4 rounded-[6px] border-[1.799px] border-border-outline shadow-[0_4.198px_2.399px_0_#000,0_4.797px_7.196px_0_rgba(0,0,0,0.25)] active:shadow-none active:translate-y-[4px] transition-all"
               onClick={(e) => { e.stopPropagation(); onSelectPlan("monthly"); }}
             >
-              <div className="absolute inset-0 bg-navy-mid rounded-[4.414px]" />
-              <div className="absolute inset-0 pointer-events-none opacity-20 bg-[url('/images/button-bg.png')] bg-cover bg-center" />
-              <span className="relative z-10 text-[22px] phone:text-[25px] lg:text-[28px] font-semibold text-footer whitespace-nowrap">
-                Subscribe monthly
+              <div className="absolute inset-0 bg-[url('/images/button-bg.png')] bg-cover bg-center rounded-[4.414px]" />
+              <span className="relative z-10 text-[24px] phone:text-[28px] lg:text-[30px] font-semibold text-footer whitespace-nowrap">
+                Subscribe & Save
               </span>
             </button>
 
@@ -89,27 +88,26 @@ export default function ChoosePlanStep({ onSelectPlan }: ChoosePlanStepProps) {
           {/* Paper texture bg */}
           <div className="absolute inset-0 pointer-events-none bg-[url('/images/paper-texture.png')] bg-cover bg-center rotate-1 skew-x-1 scale-105" />
 
-          <div className="relative z-10 px-5 py-5 lg:py-8 text-center flex flex-col items-center">
-            <p className="text-[34px] phone:text-[38px] lg:text-[44px] font-semibold text-ink leading-none tracking-[-0.667px] mb-2">
+          <div className="relative z-10 px-5 py-10 lg:py-8 text-center flex flex-col items-center">
+            <p className="text-[34px] phone:text-[38px] lg:text-[44px] font-semibold text-ink leading-none tracking-[-0.667px] mb md:mb-2">
               Just This Issue
             </p>
 
-            <p className="text-[18px] phone:text-[20px] lg:text-[22px] font-normal text-ink-mid mb-3">
+            <p className="text-[18px] phone:text-[20px] lg:text-[22px] font-normal text-ink-mid mb md:mb-3">
               One box. One story.
             </p>
 
-            <p className="text-[28px] phone:text-[32px] lg:text-[38px] font-bold text-ink mb-4">
+            <p className="text-[28px] phone:text-[32px] lg:text-[38px] font-bold text-ink mb-2 md:mb-4">
               $28.99
             </p>
 
             {/* Get This Month's Issue button */}
             <button
-              className="relative w-[80%] lg:w-[85%] h-[44px] phone:h-[50px] lg:h-[56px] overflow-hidden text-center mb-3 rounded-[6px] border-[1.798px] border-border-dark shadow-[0px_4.198px_2.399px_0px_black,0px_4.797px_7.196px_0px_rgba(0,0,0,0.25)] active:shadow-none active:translate-y-[4px] transition-all"
+              className="relative w-[80%] lg:w-[85%] h-[44px] phone:h-[50px] lg:h-[56px] overflow-hidden text-center mb-3 md:mb-4 rounded-[6px] border-[1.798px] border-border-dark [filter:drop-shadow(0_3.595px_2.397px_#111)_drop-shadow(0_4.793px_7.19px_rgba(0,0,0,0.15))] active:[filter:none] active:translate-y-[4px] transition-all"
               onClick={(e) => { e.stopPropagation(); onSelectPlan("single"); }}
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-[#EFE3D3] to-[#E0D7CC] rounded-[4.411px] border-[1.448px] border-cream-border" />
-              <div className="absolute inset-0 pointer-events-none opacity-30 bg-[url('/images/btn-light-beige-bg.png')] bg-cover bg-center" />
-              <span className="relative z-10 text-[20px] phone:text-[23px] lg:text-[26px] font-semibold text-black whitespace-nowrap">
+              <div className="absolute inset-0 bg-[url('/images/btn-light-beige-bg.png')] bg-cover bg-center rounded-[4.411px]" />
+              <span className="relative z-10 text-[22px] phone:text-[25px] lg:text-[28px] font-semibold text-black whitespace-nowrap">
                 Get This Month&apos;s Issue
               </span>
             </button>

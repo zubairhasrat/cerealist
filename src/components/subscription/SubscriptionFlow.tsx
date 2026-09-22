@@ -9,7 +9,7 @@ export default function SubscriptionFlow() {
   const [plan, setPlan] = useState<"monthly" | "single" | null>(null);
 
   return (
-    <div className="pt-8 pb-8 md:pb-24 mx-auto max-w-[420px] lg:max-w-[1100px] lg:px-4">
+    <div className="pt-3 pb-10 md:pt-8 md:pb-24 mx-auto max-w-[420px] lg:max-w-[1100px] lg:px-4">
       {step === 1 && (
         <ChoosePlanStep
           onSelectPlan={(p) => {
