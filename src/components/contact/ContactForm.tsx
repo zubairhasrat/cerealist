@@ -118,20 +118,21 @@ export default function ContactForm() {
       {/* Textarea — bordered box with inset ruled lines */}
       <div
         className="relative mb-8"
-        style={{
-          border: '1.5px solid rgba(69, 61, 58, 0.90)',
-          backgroundImage:
-            'linear-gradient(transparent calc(2em - 1px), var(--color-border-input) calc(2em - 1px))',
-          backgroundSize: 'calc(100% - 24px) 2em',
-          backgroundPosition: '12px 0',
-          backgroundRepeat: 'repeat-y',
-        }}
+        style={{ border: '1.5px solid rgba(69, 61, 58, 0.90)' }}
       >
         <textarea
           name="message"
           rows={9}
-          className="relative w-full bg-transparent font-crimson text-[18px] text-ink focus:outline-none resize-none px-3 py-2"
-          style={{ lineHeight: '2em' }}
+          className="relative w-full font-crimson text-[18px] text-ink focus:outline-none resize-none px-3 pt-0 pb-0"
+          style={{
+            lineHeight: '36px',
+            backgroundImage:
+              'linear-gradient(transparent 35px, var(--color-border-input) 35px)',
+            backgroundSize: '100% 36px',
+            backgroundPosition: '0 0',
+            backgroundRepeat: 'repeat-y',
+            backgroundColor: 'transparent',
+          }}
         />
       </div>
 
